@@ -26,6 +26,16 @@
     <File Name="Submissions/playerSFML.h"/>
     <File Name="Submissions/playerSFML.cpp"/>
     <File Name="Submissions/Position.cpp"/>
+    <File Name="Submissions/displaySFML.h"/>
+    <File Name="Submissions/Enemy.cpp"/>
+    <File Name="Submissions/Enemy.h"/>
+    <File Name="Submissions/enemyMovement.cpp"/>
+    <File Name="Submissions/enemyMovement.h"/>
+    <File Name="Submissions/enemySFML.cpp"/>
+    <File Name="Submissions/enemySFML.h"/>
+    <File Name="Submissions/cannotLoadImage.h"/>
+    <File Name="Submissions/Playing.h"/>
+    <File Name="Submissions/Playing.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

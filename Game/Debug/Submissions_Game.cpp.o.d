@@ -70,6 +70,8 @@ Debug/Submissions_Game.cpp.o: Submissions/Game.cpp Submissions/Game.h \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp \
  Submissions/Player.h Submissions/playerMovement.h Submissions/Position.h \
  Submissions/Background.h Submissions/Movement.h Submissions/playerSFML.h \
+ Submissions/cannotLoadImage.h Submissions/enemySFML.h \
+ Submissions/Enemy.h Submissions/enemyMovement.h Submissions/Playing.h \
  Submissions/SplashScreen.h
 
 Submissions/Game.h:
@@ -223,5 +225,15 @@ Submissions/Background.h:
 Submissions/Movement.h:
 
 Submissions/playerSFML.h:
+
+Submissions/cannotLoadImage.h:
+
+Submissions/enemySFML.h:
+
+Submissions/Enemy.h:
+
+Submissions/enemyMovement.h:
+
+Submissions/Playing.h:
 
 Submissions/SplashScreen.h:

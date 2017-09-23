@@ -6,8 +6,10 @@
 #include "Background.h"
 #include "Movement.h"
 #include "playerSFML.h"
+#include "enemySFML.h"
 #include <iostream>
 #include <memory>
+#include "Playing.h"
 
 class Game{
     public:
@@ -22,9 +24,12 @@ class Game{
      enum class GameMode {Playing, Quiting, Splash, Menu, Uninitialized};
      static sf::RenderWindow Window1;
      static GameMode Mode;
-     static playerSFML _player;
+//     static playerSFML _player;
+//     static enemySFML _enemy;
      static double _screenWidth;
      static double _screenHeight;
+     
+     static Playing _playing;
      
      //static Player _player1;
      //static Player _player2;
