@@ -4,9 +4,9 @@
 
 double Game::_screenWidth = 1024;
 double Game::_screenHeight = 640;
-playerSFML Game::_player{"resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2)};
-//Player Game::_player1{"resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2),sf::Vector2f(0.1,0.1)};
-//Player Game::_player2{"resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2),sf::Vector2f(0.2,0.2)};
+Playing Game::_playing;
+//playerSFML Game::_player{"resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2)};
+//enemySFML Game::_enemy{"resources/villain.png",sf::Vector2f((_screenWidth/2),(_screenHeight/2)),sf::Vector2f((_screenWidth/2),(_screenHeight/2))};
 Background Game::_background;
 
 //This function initializes the game!
@@ -14,6 +14,10 @@ void Game::GameStart(){
     Window1.create(sf::VideoMode(_screenWidth,_screenHeight,32),"Game",sf::Style::Default);
     Window1.setKeyRepeatEnabled(true);
     Mode = Game::GameMode::Splash;
+    
+    _playing.initializeWindow(Window1);
+    _playing.initializePlayer("resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2));
+    _playing.initializeEemey("resources/villain.png",sf::Vector2f((_screenWidth/2),(_screenHeight/2)),sf::Vector2f((_screenWidth/2),(_screenHeight/2)));
     
     while(!isQuiting()){
     MainLoop();
@@ -42,31 +46,48 @@ void Game::MainLoop(){
                 break;
             
             case Game::GameMode::Playing:
-                 sf::Event EventNow;
-                 
-                 //event loop
-                while(Window1.pollEvent(EventNow)){
-                //dispBackground();
-                if(EventNow.type == sf::Event::Closed){
-                     Mode = Game::GameMode::Quiting;
-                     Window1.close();
+            
+                if(!_playing.play()){
+                    Mode = Game::GameMode::Quiting;
+                    break;
                 }
+                
+                
+                Window1.clear();
+                dispBackground();
+                _playing.display();
+                Window1.display();
+                
+//                 sf::Event EventNow;
+//                 
+//                 //event loop
+//                while(Window1.pollEvent(EventNow)){
+//                //dispBackground();
+//                if(EventNow.type == sf::Event::Closed){
+//                     Mode = Game::GameMode::Quiting;
+//                     Window1.close();
+//                }
+//
+//            }
+//            
+//            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+//                _player.setPosition(_player.rotateRight(0.5));
+//                _player.rotate(-0.5);
+//            }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+//                _player.setPosition(_player.rotateLeft(0.5));
+//                _player.rotate(0.5);
+//            }
+//            
+//            
+//            _enemy.setPosition(_enemy.moveStraightFromCentre(50));
+//            
+//            Window1.clear();
+//            dispBackground();
+//            _player.drawPlayer(Window1);
+//            _enemy.drawPlayer(Window1);
+//            Window1.display();
 
-            }
             
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-                _player.setPosition(_player.rotateRight(0.5));
-                _player.rotate(-0.5);
-            }else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-                //_player.rotateLeft(0.5);
-            }
-            
-            
-            
-            Window1.clear();
-            dispBackground();
-            _player.drawPlayer(Window1);
-            Window1.display();
             break;
         default:
             break;
