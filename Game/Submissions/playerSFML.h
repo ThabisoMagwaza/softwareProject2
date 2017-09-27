@@ -20,8 +20,8 @@ public:
     double getGlobalBoundHeight() ;
     std::shared_ptr<sf::Sprite> getSprite() ;
 private:
-    sf::Texture _texture;
+    std::shared_ptr<sf::Texture> _texture;
     sf::Vector2f _scale;
-    sf::Sprite _sprite;
+    std::shared_ptr<sf::Sprite> _sprite;
     double _globalBoundHeight; 
 };

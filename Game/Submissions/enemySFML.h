@@ -13,14 +13,15 @@ public:
     void drawPlayer(sf::RenderWindow &window) ; 
     void setScale(const sf::Vector2f& newScale) ;
     void setPosition(const Position& newPosition) ;
+    void setRotation(const double& angle) ;
     void rotate(const double& angle) ;
     sf::Vector2f getScale() const ;
     void scale(const sf::Vector2f& scale) ;
     double getGlobalBoundHeight() ;
     std::shared_ptr<sf::Sprite> getSprite() ;
 private:
-    sf::Texture _texture;
+    std::shared_ptr<sf::Texture> _texture;
     sf::Vector2f _scale;
-    sf::Sprite _sprite;
+    std::shared_ptr<sf::Sprite> _sprite;
     double _globalBoundHeight; 
 };

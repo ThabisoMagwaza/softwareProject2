@@ -39,7 +39,7 @@ void playerMovement::setLocation(Position& newLocation){
     _location = newLocation;
 }
 
-Position playerMovement::getLocation() const {
+Position playerMovement::getLocation() {
     return _location;
 }
 
@@ -57,4 +57,8 @@ void playerMovement::setCurrentAngle(const double& newAngle){
 
 double playerMovement::getCurrentAngle() const {
     return _currentAngle;
+}
+
+Position playerMovement::getOrigin() {
+    return _origin;
 }

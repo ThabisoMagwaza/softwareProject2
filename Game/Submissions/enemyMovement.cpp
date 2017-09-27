@@ -19,6 +19,7 @@ void enemyMovement::initialize(Position& startPosition , Position& origin,  cons
 
 void enemyMovement::setLocation(Position& newLocation){
     _location = newLocation;
+    _displacement = calculateDisplacement();
 }
 
 Position enemyMovement::getLocation() const {
@@ -46,5 +47,29 @@ Position enemyMovement::moveStraightFromCentre(const double& angle, const double
     _location.x = _origin.x + ((_displacement) * cos(angle*(3.14/180)));
     _location.y = _origin.y + ((_displacement) * sin(angle*(3.14/180)));
     
+    _currentAngle = angle;
+    
     return _location;
+}
+
+bool enemyMovement::isMoving() const {
+    return _displacement != 0;
+}
+
+Position enemyMovement::spiralFromCenter(const double& speed){
+    _currentAngle += speed;
+    _location.x = _origin.x + (0.6*(_currentAngle *(3.14/180))*cos(_currentAngle *(3.14/180)));
+    _location.y = _origin.y + (0.6*(_currentAngle *(3.14/180))*sin(_currentAngle *(3.14/180)));
+    
+    _displacement = calculateDisplacement();
+    
+    return _location;
+}
+
+double enemyMovement::calculateDisplacement() const{
+    return sqrt(pow(_location.x - _origin.x,2) + pow(_location.y - _origin.x,2));
+}
+
+Position enemyMovement::getOrigin() const{
+    return _origin;
 }

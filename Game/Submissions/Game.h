@@ -10,6 +10,7 @@
 #include <iostream>
 #include <memory>
 #include "Playing.h"
+#include "GameOver.h"
 
 class Game{
     public:
@@ -20,8 +21,9 @@ class Game{
      static bool isQuiting();
      static void dispSplash();
      static void dispBackground();
+     static void dispGameOver();
      static Background _background;
-     enum class GameMode {Playing, Quiting, Splash, Menu, Uninitialized};
+     enum class GameMode {Playing, Quiting, Splash, Menu, Uninitialized, GameOver};
      static sf::RenderWindow Window1;
      static GameMode Mode;
 //     static playerSFML _player;
