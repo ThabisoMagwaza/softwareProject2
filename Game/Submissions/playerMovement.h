@@ -11,11 +11,13 @@ public:
     Position rotateRight(const double& rotationAngle = 1);
     Position rotateLeft(const double& rotationAngle = 1);
     void setLocation( Position& newLocation);
-    Position getLocation() const;
+    Position getLocation() ;
     void setRadius(const double& newRadius);
     double getRadius() const ;
     void setCurrentAngle(const double& newAngle);
     double getCurrentAngle() const ;
+    Position getOrigin();
+
     
 private:
     Position _location;

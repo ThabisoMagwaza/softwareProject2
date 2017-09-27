@@ -1,6 +1,7 @@
 Debug/Submissions_playerSFML.cpp.o: Submissions/playerSFML.cpp \
  Submissions/playerSFML.h Submissions/Player.h \
  Submissions/playerMovement.h Submissions/Position.h \
+ Submissions/cannotLoadImage.h \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Window.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/System.hpp \
@@ -78,6 +79,8 @@ Submissions/Player.h:
 Submissions/playerMovement.h:
 
 Submissions/Position.h:
+
+Submissions/cannotLoadImage.h:
 
 C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics.hpp:
 

@@ -36,6 +36,20 @@
     <File Name="Submissions/cannotLoadImage.h"/>
     <File Name="Submissions/Playing.h"/>
     <File Name="Submissions/Playing.cpp"/>
+    <File Name="Submissions/enemyBulletMovement.h"/>
+    <File Name="Submissions/enemyBulletMovement.cpp"/>
+    <File Name="Submissions/enemyBullet.h"/>
+    <File Name="Submissions/enemyBullet.cpp"/>
+    <File Name="Submissions/enemyBulletSFML.h"/>
+    <File Name="Submissions/enemyBulletSFML.cpp"/>
+    <File Name="Submissions/playerBullet.h"/>
+    <File Name="Submissions/playerbullet.cpp"/>
+    <File Name="Submissions/playerBulletMovement.h"/>
+    <File Name="Submissions/playerBulletMovement.cpp"/>
+    <File Name="Submissions/playerBulletSFML.h"/>
+    <File Name="Submissions/playerBulletSFML.cpp"/>
+    <File Name="Submissions/GameOver.cpp"/>
+    <File Name="Submissions/GameOver.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

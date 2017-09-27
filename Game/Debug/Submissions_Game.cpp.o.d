@@ -72,6 +72,8 @@ Debug/Submissions_Game.cpp.o: Submissions/Game.cpp Submissions/Game.h \
  Submissions/Background.h Submissions/Movement.h Submissions/playerSFML.h \
  Submissions/cannotLoadImage.h Submissions/enemySFML.h \
  Submissions/Enemy.h Submissions/enemyMovement.h Submissions/Playing.h \
+ Submissions/playerBulletSFML.h Submissions/playerBullet.h \
+ Submissions/playerBulletMovement.h Submissions/GameOver.h \
  Submissions/SplashScreen.h
 
 Submissions/Game.h:
@@ -235,5 +237,13 @@ Submissions/Enemy.h:
 Submissions/enemyMovement.h:
 
 Submissions/Playing.h:
+
+Submissions/playerBulletSFML.h:
+
+Submissions/playerBullet.h:
+
+Submissions/playerBulletMovement.h:
+
+Submissions/GameOver.h:
 
 Submissions/SplashScreen.h:

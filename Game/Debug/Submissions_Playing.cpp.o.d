@@ -72,7 +72,9 @@ Debug/Submissions_Playing.cpp.o: Submissions/Playing.cpp \
  Submissions/playerSFML.h Submissions/Player.h \
  Submissions/playerMovement.h Submissions/Position.h \
  Submissions/cannotLoadImage.h Submissions/enemySFML.h \
- Submissions/Enemy.h Submissions/enemyMovement.h
+ Submissions/Enemy.h Submissions/enemyMovement.h \
+ Submissions/playerBulletSFML.h Submissions/playerBullet.h \
+ Submissions/playerBulletMovement.h
 
 Submissions/Playing.h:
 
@@ -229,3 +231,9 @@ Submissions/enemySFML.h:
 Submissions/Enemy.h:
 
 Submissions/enemyMovement.h:
+
+Submissions/playerBulletSFML.h:
+
+Submissions/playerBullet.h:
+
+Submissions/playerBulletMovement.h:
