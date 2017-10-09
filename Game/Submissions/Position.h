@@ -7,8 +7,8 @@
 class Position{
 public:
     Position();
-    void setPosition(const double& _x, const double& _y);
-//private:
+    Position(const double& _x, const double& _y);
+    bool operator==(const Position& rhs);
     double x;
     double y;
 };

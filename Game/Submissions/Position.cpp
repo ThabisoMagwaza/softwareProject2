@@ -5,7 +5,11 @@ Position::Position(){
     y = 0;
 }
 
-void Position::setPosition(const double& _x, const double& _y){
+Position::Position(const double& _x, const double& _y){
     x = _x;
     y = _y;
+}
+
+bool Position::operator==( const Position& rhs){
+    return ((x == rhs.x) && (y == rhs.y));
 }
