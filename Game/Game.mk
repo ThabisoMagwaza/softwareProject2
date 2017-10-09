@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Thabiso Magwaza
-Date                   :=27/09/2017
+Date                   :=09/10/2017
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,9 +62,8 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/Submissions_Background.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Movement.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Player.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_source.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_SplashScreen.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerMovement.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerSFML.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Position.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Enemy.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/Submissions_enemyMovement.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_enemySFML.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Playing.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_enemyBullet.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerbullet.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerBulletMovement.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_GameOver.cpp$(ObjectSuffix) \
-	
+Objects0=$(IntermediateDirectory)/Submissions_Background.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Player.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_SplashScreen.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_gameTest.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerMovement.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Position.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Enemy.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_enemyMovement.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerbullet.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_playerBulletMovement.cpp$(ObjectSuffix) \
+	$(IntermediateDirectory)/Submissions_GameOver.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_boundRect.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submissions_Controls.cpp$(ObjectSuffix) 
 
 
 
@@ -103,22 +102,6 @@ $(IntermediateDirectory)/Submissions_Background.cpp$(DependSuffix): Submissions/
 $(IntermediateDirectory)/Submissions_Background.cpp$(PreprocessSuffix): Submissions/Background.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_Background.cpp$(PreprocessSuffix) Submissions/Background.cpp
 
-$(IntermediateDirectory)/Submissions_Game.cpp$(ObjectSuffix): Submissions/Game.cpp $(IntermediateDirectory)/Submissions_Game.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/Game.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_Game.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_Game.cpp$(DependSuffix): Submissions/Game.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_Game.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_Game.cpp$(DependSuffix) -MM Submissions/Game.cpp
-
-$(IntermediateDirectory)/Submissions_Game.cpp$(PreprocessSuffix): Submissions/Game.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_Game.cpp$(PreprocessSuffix) Submissions/Game.cpp
-
-$(IntermediateDirectory)/Submissions_Movement.cpp$(ObjectSuffix): Submissions/Movement.cpp $(IntermediateDirectory)/Submissions_Movement.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/Movement.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_Movement.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_Movement.cpp$(DependSuffix): Submissions/Movement.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_Movement.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_Movement.cpp$(DependSuffix) -MM Submissions/Movement.cpp
-
-$(IntermediateDirectory)/Submissions_Movement.cpp$(PreprocessSuffix): Submissions/Movement.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_Movement.cpp$(PreprocessSuffix) Submissions/Movement.cpp
-
 $(IntermediateDirectory)/Submissions_Player.cpp$(ObjectSuffix): Submissions/Player.cpp $(IntermediateDirectory)/Submissions_Player.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/Player.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_Player.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Submissions_Player.cpp$(DependSuffix): Submissions/Player.cpp
@@ -126,14 +109,6 @@ $(IntermediateDirectory)/Submissions_Player.cpp$(DependSuffix): Submissions/Play
 
 $(IntermediateDirectory)/Submissions_Player.cpp$(PreprocessSuffix): Submissions/Player.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_Player.cpp$(PreprocessSuffix) Submissions/Player.cpp
-
-$(IntermediateDirectory)/Submissions_source.cpp$(ObjectSuffix): Submissions/source.cpp $(IntermediateDirectory)/Submissions_source.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/source.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_source.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_source.cpp$(DependSuffix): Submissions/source.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_source.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_source.cpp$(DependSuffix) -MM Submissions/source.cpp
-
-$(IntermediateDirectory)/Submissions_source.cpp$(PreprocessSuffix): Submissions/source.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_source.cpp$(PreprocessSuffix) Submissions/source.cpp
 
 $(IntermediateDirectory)/Submissions_SplashScreen.cpp$(ObjectSuffix): Submissions/SplashScreen.cpp $(IntermediateDirectory)/Submissions_SplashScreen.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/SplashScreen.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_SplashScreen.cpp$(ObjectSuffix) $(IncludePath)
@@ -143,6 +118,14 @@ $(IntermediateDirectory)/Submissions_SplashScreen.cpp$(DependSuffix): Submission
 $(IntermediateDirectory)/Submissions_SplashScreen.cpp$(PreprocessSuffix): Submissions/SplashScreen.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_SplashScreen.cpp$(PreprocessSuffix) Submissions/SplashScreen.cpp
 
+$(IntermediateDirectory)/Submissions_gameTest.cpp$(ObjectSuffix): Submissions/gameTest.cpp $(IntermediateDirectory)/Submissions_gameTest.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/gameTest.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_gameTest.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Submissions_gameTest.cpp$(DependSuffix): Submissions/gameTest.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_gameTest.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_gameTest.cpp$(DependSuffix) -MM Submissions/gameTest.cpp
+
+$(IntermediateDirectory)/Submissions_gameTest.cpp$(PreprocessSuffix): Submissions/gameTest.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_gameTest.cpp$(PreprocessSuffix) Submissions/gameTest.cpp
+
 $(IntermediateDirectory)/Submissions_playerMovement.cpp$(ObjectSuffix): Submissions/playerMovement.cpp $(IntermediateDirectory)/Submissions_playerMovement.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/playerMovement.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_playerMovement.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Submissions_playerMovement.cpp$(DependSuffix): Submissions/playerMovement.cpp
@@ -150,14 +133,6 @@ $(IntermediateDirectory)/Submissions_playerMovement.cpp$(DependSuffix): Submissi
 
 $(IntermediateDirectory)/Submissions_playerMovement.cpp$(PreprocessSuffix): Submissions/playerMovement.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_playerMovement.cpp$(PreprocessSuffix) Submissions/playerMovement.cpp
-
-$(IntermediateDirectory)/Submissions_playerSFML.cpp$(ObjectSuffix): Submissions/playerSFML.cpp $(IntermediateDirectory)/Submissions_playerSFML.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/playerSFML.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_playerSFML.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_playerSFML.cpp$(DependSuffix): Submissions/playerSFML.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_playerSFML.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_playerSFML.cpp$(DependSuffix) -MM Submissions/playerSFML.cpp
-
-$(IntermediateDirectory)/Submissions_playerSFML.cpp$(PreprocessSuffix): Submissions/playerSFML.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_playerSFML.cpp$(PreprocessSuffix) Submissions/playerSFML.cpp
 
 $(IntermediateDirectory)/Submissions_Position.cpp$(ObjectSuffix): Submissions/Position.cpp $(IntermediateDirectory)/Submissions_Position.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/Position.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_Position.cpp$(ObjectSuffix) $(IncludePath)
@@ -183,46 +158,6 @@ $(IntermediateDirectory)/Submissions_enemyMovement.cpp$(DependSuffix): Submissio
 $(IntermediateDirectory)/Submissions_enemyMovement.cpp$(PreprocessSuffix): Submissions/enemyMovement.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_enemyMovement.cpp$(PreprocessSuffix) Submissions/enemyMovement.cpp
 
-$(IntermediateDirectory)/Submissions_enemySFML.cpp$(ObjectSuffix): Submissions/enemySFML.cpp $(IntermediateDirectory)/Submissions_enemySFML.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/enemySFML.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_enemySFML.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_enemySFML.cpp$(DependSuffix): Submissions/enemySFML.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_enemySFML.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_enemySFML.cpp$(DependSuffix) -MM Submissions/enemySFML.cpp
-
-$(IntermediateDirectory)/Submissions_enemySFML.cpp$(PreprocessSuffix): Submissions/enemySFML.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_enemySFML.cpp$(PreprocessSuffix) Submissions/enemySFML.cpp
-
-$(IntermediateDirectory)/Submissions_Playing.cpp$(ObjectSuffix): Submissions/Playing.cpp $(IntermediateDirectory)/Submissions_Playing.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/Playing.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_Playing.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_Playing.cpp$(DependSuffix): Submissions/Playing.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_Playing.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_Playing.cpp$(DependSuffix) -MM Submissions/Playing.cpp
-
-$(IntermediateDirectory)/Submissions_Playing.cpp$(PreprocessSuffix): Submissions/Playing.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_Playing.cpp$(PreprocessSuffix) Submissions/Playing.cpp
-
-$(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(ObjectSuffix): Submissions/enemyBulletMovement.cpp $(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/enemyBulletMovement.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(DependSuffix): Submissions/enemyBulletMovement.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(DependSuffix) -MM Submissions/enemyBulletMovement.cpp
-
-$(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(PreprocessSuffix): Submissions/enemyBulletMovement.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_enemyBulletMovement.cpp$(PreprocessSuffix) Submissions/enemyBulletMovement.cpp
-
-$(IntermediateDirectory)/Submissions_enemyBullet.cpp$(ObjectSuffix): Submissions/enemyBullet.cpp $(IntermediateDirectory)/Submissions_enemyBullet.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/enemyBullet.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_enemyBullet.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_enemyBullet.cpp$(DependSuffix): Submissions/enemyBullet.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_enemyBullet.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_enemyBullet.cpp$(DependSuffix) -MM Submissions/enemyBullet.cpp
-
-$(IntermediateDirectory)/Submissions_enemyBullet.cpp$(PreprocessSuffix): Submissions/enemyBullet.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_enemyBullet.cpp$(PreprocessSuffix) Submissions/enemyBullet.cpp
-
-$(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(ObjectSuffix): Submissions/enemyBulletSFML.cpp $(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/enemyBulletSFML.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(DependSuffix): Submissions/enemyBulletSFML.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(DependSuffix) -MM Submissions/enemyBulletSFML.cpp
-
-$(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(PreprocessSuffix): Submissions/enemyBulletSFML.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_enemyBulletSFML.cpp$(PreprocessSuffix) Submissions/enemyBulletSFML.cpp
-
 $(IntermediateDirectory)/Submissions_playerbullet.cpp$(ObjectSuffix): Submissions/playerbullet.cpp $(IntermediateDirectory)/Submissions_playerbullet.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/playerbullet.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_playerbullet.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Submissions_playerbullet.cpp$(DependSuffix): Submissions/playerbullet.cpp
@@ -239,14 +174,6 @@ $(IntermediateDirectory)/Submissions_playerBulletMovement.cpp$(DependSuffix): Su
 $(IntermediateDirectory)/Submissions_playerBulletMovement.cpp$(PreprocessSuffix): Submissions/playerBulletMovement.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_playerBulletMovement.cpp$(PreprocessSuffix) Submissions/playerBulletMovement.cpp
 
-$(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(ObjectSuffix): Submissions/playerBulletSFML.cpp $(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/playerBulletSFML.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(DependSuffix): Submissions/playerBulletSFML.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(DependSuffix) -MM Submissions/playerBulletSFML.cpp
-
-$(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(PreprocessSuffix): Submissions/playerBulletSFML.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_playerBulletSFML.cpp$(PreprocessSuffix) Submissions/playerBulletSFML.cpp
-
 $(IntermediateDirectory)/Submissions_GameOver.cpp$(ObjectSuffix): Submissions/GameOver.cpp $(IntermediateDirectory)/Submissions_GameOver.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/GameOver.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_GameOver.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Submissions_GameOver.cpp$(DependSuffix): Submissions/GameOver.cpp
@@ -254,6 +181,22 @@ $(IntermediateDirectory)/Submissions_GameOver.cpp$(DependSuffix): Submissions/Ga
 
 $(IntermediateDirectory)/Submissions_GameOver.cpp$(PreprocessSuffix): Submissions/GameOver.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_GameOver.cpp$(PreprocessSuffix) Submissions/GameOver.cpp
+
+$(IntermediateDirectory)/Submissions_boundRect.cpp$(ObjectSuffix): Submissions/boundRect.cpp $(IntermediateDirectory)/Submissions_boundRect.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/boundRect.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_boundRect.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Submissions_boundRect.cpp$(DependSuffix): Submissions/boundRect.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_boundRect.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_boundRect.cpp$(DependSuffix) -MM Submissions/boundRect.cpp
+
+$(IntermediateDirectory)/Submissions_boundRect.cpp$(PreprocessSuffix): Submissions/boundRect.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_boundRect.cpp$(PreprocessSuffix) Submissions/boundRect.cpp
+
+$(IntermediateDirectory)/Submissions_Controls.cpp$(ObjectSuffix): Submissions/Controls.cpp $(IntermediateDirectory)/Submissions_Controls.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Thabiso Magwaza/Desktop/Electrical Engineering Undergrad/Third Year/SecondSemester/ELEN3009/Project/softwarePorject2/Game/Submissions/Controls.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Submissions_Controls.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Submissions_Controls.cpp$(DependSuffix): Submissions/Controls.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Submissions_Controls.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Submissions_Controls.cpp$(DependSuffix) -MM Submissions/Controls.cpp
+
+$(IntermediateDirectory)/Submissions_Controls.cpp$(PreprocessSuffix): Submissions/Controls.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Submissions_Controls.cpp$(PreprocessSuffix) Submissions/Controls.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

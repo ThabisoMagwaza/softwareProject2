@@ -19,10 +19,10 @@ enemySFML::enemySFML(std::string imageDir, const sf::Vector2f& startPosition,con
     auto temp = sf::Vector2f(startPosition.x,startPosition.y);
     _sprite->setPosition(temp);
     
-    Position startP;
-    startP.setPosition(temp.x,temp.y);
-    Position Origin;
-    Origin.setPosition(origin.x,origin.y);
+    Position startP(temp.x,temp.y);
+    //startP.setPosition(temp.x,temp.y);
+    Position Origin(origin.x,origin.y);
+    //Origin.setPosition(origin.x,origin.y);
     
     Enemy::initialize(imageDir,startP,Origin);
 }

@@ -14,6 +14,7 @@ public:
     void drawPlayer(sf::RenderWindow &window) ; 
     void setScale(const sf::Vector2f& newScale) ;
     void setPosition(const Position& newPosition) ;
+    void setRotation(const double& angle);
     void rotate(const double& angle) ;
     sf::Vector2f getScale() const ;
     void scale(const sf::Vector2f& scale) ;

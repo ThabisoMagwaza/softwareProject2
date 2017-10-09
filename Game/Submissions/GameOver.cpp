@@ -13,7 +13,7 @@ void GameOver::display(sf::RenderWindow& window){
         sf::Text text1;
         
         text.setFont(font);
-        text.setString("Game Over...You Lose!");
+        text.setString("Game Over");
         text.setPosition(0,100);
         text1.setFont(font);
         text1.setString("Press any key for Menu");
@@ -26,7 +26,7 @@ void GameOver::display(sf::RenderWindow& window){
     sf::Event Event1;
     while(true){
         while(window.pollEvent(Event1)){
-        if(Event1.type == sf::Event::EventType::KeyPressed)
+        if(Event1.type == sf::Event::EventType::MouseButtonPressed)
             return;   
         else if(Event1.type == sf::Event::EventType::Closed)
             window.close();

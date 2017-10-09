@@ -23,7 +23,7 @@ class Game{
      static void dispBackground();
      static void dispGameOver();
      static Background _background;
-     enum class GameMode {Playing, Quiting, Splash, Menu, Uninitialized, GameOver};
+     enum class GameMode {Playing, Quiting, Splash, GameOver};
      static sf::RenderWindow Window1;
      static GameMode Mode;
 //     static playerSFML _player;

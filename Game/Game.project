@@ -10,46 +10,48 @@
   <VirtualDirectory Name="Submissions">
     <File Name="Submissions/Background.cpp"/>
     <File Name="Submissions/Background.h"/>
-    <File Name="Submissions/Game.cpp"/>
-    <File Name="Submissions/Game.h"/>
-    <File Name="Submissions/Movement.cpp"/>
-    <File Name="Submissions/Movement.h"/>
+    <File Name="Submissions/Game.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/Game.h" ExcludeProjConfig="Debug"/>
     <File Name="Submissions/Player.cpp"/>
     <File Name="Submissions/Player.h"/>
-    <File Name="Submissions/source.cpp"/>
+    <File Name="Submissions/source.cpp" ExcludeProjConfig="Debug"/>
     <File Name="Submissions/SplashScreen.cpp"/>
     <File Name="Submissions/SplashScreen.h"/>
-    <File Name="Submissions/gameTest.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/gameTest.cpp" ExcludeProjConfig=""/>
     <File Name="Submissions/playerMovement.h"/>
     <File Name="Submissions/playerMovement.cpp"/>
     <File Name="Submissions/Position.h"/>
-    <File Name="Submissions/playerSFML.h"/>
-    <File Name="Submissions/playerSFML.cpp"/>
+    <File Name="Submissions/playerSFML.h" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/playerSFML.cpp" ExcludeProjConfig="Debug"/>
     <File Name="Submissions/Position.cpp"/>
     <File Name="Submissions/displaySFML.h"/>
     <File Name="Submissions/Enemy.cpp"/>
     <File Name="Submissions/Enemy.h"/>
     <File Name="Submissions/enemyMovement.cpp"/>
     <File Name="Submissions/enemyMovement.h"/>
-    <File Name="Submissions/enemySFML.cpp"/>
-    <File Name="Submissions/enemySFML.h"/>
+    <File Name="Submissions/enemySFML.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/enemySFML.h" ExcludeProjConfig="Debug"/>
     <File Name="Submissions/cannotLoadImage.h"/>
-    <File Name="Submissions/Playing.h"/>
-    <File Name="Submissions/Playing.cpp"/>
-    <File Name="Submissions/enemyBulletMovement.h"/>
-    <File Name="Submissions/enemyBulletMovement.cpp"/>
-    <File Name="Submissions/enemyBullet.h"/>
-    <File Name="Submissions/enemyBullet.cpp"/>
-    <File Name="Submissions/enemyBulletSFML.h"/>
-    <File Name="Submissions/enemyBulletSFML.cpp"/>
-    <File Name="Submissions/playerBullet.h"/>
-    <File Name="Submissions/playerbullet.cpp"/>
-    <File Name="Submissions/playerBulletMovement.h"/>
-    <File Name="Submissions/playerBulletMovement.cpp"/>
-    <File Name="Submissions/playerBulletSFML.h"/>
-    <File Name="Submissions/playerBulletSFML.cpp"/>
+    <File Name="Submissions/Playing.h" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/Playing.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/enemyBulletMovement.h" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/enemyBulletMovement.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/enemyBullet.h" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/enemyBullet.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/enemyBulletSFML.h" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/enemyBulletSFML.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/playerBullet.h" ExcludeProjConfig=""/>
+    <File Name="Submissions/playerbullet.cpp" ExcludeProjConfig=""/>
+    <File Name="Submissions/playerBulletMovement.h" ExcludeProjConfig=""/>
+    <File Name="Submissions/playerBulletMovement.cpp" ExcludeProjConfig=""/>
+    <File Name="Submissions/playerBulletSFML.h" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/playerBulletSFML.cpp" ExcludeProjConfig="Debug"/>
     <File Name="Submissions/GameOver.cpp"/>
     <File Name="Submissions/GameOver.h"/>
+    <File Name="Submissions/boundRect.h"/>
+    <File Name="Submissions/boundRect.cpp"/>
+    <File Name="Submissions/Controls.h"/>
+    <File Name="Submissions/Controls.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

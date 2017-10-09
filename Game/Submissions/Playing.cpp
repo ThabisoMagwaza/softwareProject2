@@ -34,9 +34,11 @@ void Playing::initializeEemey(std::string imageDir,const sf::Vector2f& startPosi
     }
 }
 
-void Playing::initializeSpiralEnemy(std::string imageDir,const sf::Vector2f& startPosition, const sf::Vector2f& origin, const int& numEnemies){
+void Playing::initializeSpiralEnemy( std::string imageDir,const sf::Vector2f& startPosition, const sf::Vector2f& origin, const int& numEnemies){
     for(auto i = 0;i<numEnemies;i++){
         auto newEnemy = std::shared_ptr<enemySFML> (new enemySFML(imageDir,startPosition,origin));
+        newEnemy->setScale(sf::Vector2f(0.15,0.15));
+        newEnemy->setLives(40);
         _spriralEnemy.push_back(newEnemy);
     }
 }
@@ -104,27 +106,21 @@ bool Playing::play(){
             
             if(_enemies.empty()){
             //advance enemies
-            for(unsigned int i = 0; i < _spriralEnemy.size();i++){
-                //if out of playing area
-                if(_spriralEnemy[i]->getDisplacement() > _playingRadius + 60)
-                    _spriralEnemy[i]->setDisplacement(0);
+                for(unsigned int i = 0; i < _spriralEnemy.size();i++){
+
+                    //if out of playing area
+                    if(_spriralEnemy[i]->getDisplacement() > _playingRadius + 60)
+                        _spriralEnemy[i]->setDisplacement(0);
                 
-                _spriralEnemy.at(i)->setPosition(_spriralEnemy[i]->spiralFromCenter(2));
+                    _spriralEnemy.at(i)->setPosition(_spriralEnemy[i]->spiralFromCenter(0.5));
                 
                 //if enemy colide with player
-                if(collision(_spriralEnemy[i]->getSprite(),_player->getSprite())){
-                    return false;
+                    if(collision(_spriralEnemy[i]->getSprite(),_player->getSprite())){
+                        return false;
+                    }
+
                 }
-                
-                //std::cout<<_enemies[i]->getDisplacement()<<std::endl;
-                //if enemy far enough from center, shoot enemy bullet
-                if(_spriralEnemy[i]->getDisplacement() == 100){
-                    addEnemyBulllet();
-                }
-                
-                
-                //std::cout<<_enemyBulluets.size()<<std::endl;
-            }
+                //std::cout<<_spriralEnemy[0]->getLives()<<std::endl;
             }
             
             advanceBullets();
@@ -138,19 +134,20 @@ bool Playing::play(){
             //
             
             
-            return _spriralEnemy.size() != 0;
+            return _spriralEnemy[0]->isAlive();
 }
 
 void Playing::display() const{
         //_window->clear();
         //dispBackground();
         _player->drawPlayer(*_window);
-        for(unsigned int i = 0; i < _enemies.size();i++){
-            _enemies.at(i)->drawPlayer(*_window);
-        }
         
         for(unsigned int i = 0; i< _bullets.size();i++){
             _bullets[i]->drawPlayer(*_window);
+        }
+        
+        for(unsigned int i = 0; i < _enemies.size();i++){
+            _enemies.at(i)->drawPlayer(*_window);
         }
         
         for(unsigned int i = 0; i<_enemyBulluets.size();i++){
@@ -189,7 +186,7 @@ void Playing::resetGame(std::string p_imageDir,const sf::Vector2f& p_startPositi
     
     initializePlayer(p_imageDir,p_startPosition,p_origin,p_radius);
     initializeEemey(e_imageDir,e_startPosition,e_origin);
-    initializeSpiralEnemy(se_imageDir,e_startPosition,e_origin);
+    initializeSpiralEnemy(se_imageDir,e_startPosition,e_origin,numEnemies);
 }
 
 void Playing::advanceBullets() {
@@ -212,6 +209,16 @@ void Playing::advanceBullets() {
                 if(_bullets[i]->getDisplacement() < 3){
                     //int int_to_remove = n;
                     _bullets.erase(std::remove(_bullets.begin(), _bullets.end(), _bullets[i]), _bullets.end());
+                    break;
+                }
+                
+                if(_enemies.empty()){
+
+                    if(collision(_bullets[i]->getSprite(),_spriralEnemy[0]->getSprite())){
+                        _spriralEnemy[0]->damage(1);
+                        _bullets.erase(std::remove(_bullets.begin(), _bullets.end(), _bullets[i]), _bullets.end());
+                        break;
+                    }
                 }
                 
         }

@@ -11,9 +11,9 @@ Background Game::_background;
 
 //This function initializes the game!
 void Game::GameStart(){
-    Window1.create(sf::VideoMode(_screenWidth,_screenHeight,32),"Game",sf::Style::Default);
+    Window1.create(sf::VideoMode(_screenWidth,_screenHeight,32),"Game",sf::Style::Close | sf::Style::Titlebar);
     Window1.setKeyRepeatEnabled(false);
-    Mode = Game::GameMode::Splash;
+    
     
     _playing.initializeWindow(Window1, _screenHeight/2);
     //_playing.initializePlayer("resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2));
@@ -52,7 +52,7 @@ void Game::MainLoop(){
                 if(!_playing.play()){
                     Mode = Game::GameMode::GameOver;
                     //_playing.initializeWindow(Window1, _screenHeight/2);
-                    _playing.resetGame("resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2),"resources/villain2.png",sf::Vector2f((_screenWidth/2),(_screenHeight/2)),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),"resources/villain2.png");
+                    _playing.resetGame("resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2),"resources/villain2.png",sf::Vector2f((_screenWidth/2),(_screenHeight/2)),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),"resources/villain.png");
                     
                 }
                // Window1.clear();
@@ -94,5 +94,5 @@ void Game::dispGameOver(){
 
 
 
-Game::GameMode Game::Mode = Game::GameMode::Uninitialized;
+Game::GameMode Game::Mode = Game::GameMode::Splash;
 sf::RenderWindow Game::Window1;

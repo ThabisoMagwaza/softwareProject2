@@ -22,7 +22,7 @@ public:
    void advanceBullets();
    void addEnemyBulllet();
    void addBullet();
-   void resetGame(std::string p_imageDir,const sf::Vector2f& p_startPosition, const sf::Vector2f& p_origin,const double& p_radius,std::string e_imageDir,const sf::Vector2f& e_startPosition, const sf::Vector2f& e_origin,const std::string& se_imageDir,const int& numEnemies = 3);
+   void resetGame(std::string p_imageDir,const sf::Vector2f& p_startPosition, const sf::Vector2f& p_origin,const double& p_radius,std::string e_imageDir,const sf::Vector2f& e_startPosition, const sf::Vector2f& e_origin,const std::string& se_imageDir,const int& numEnemies = 1);
    
 private:
     std::shared_ptr<playerSFML> _player;
