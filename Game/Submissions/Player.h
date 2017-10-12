@@ -31,7 +31,7 @@ public:
     bool isAlive() const;
     void addBullet();
     void removeBullet(const int& bullet);
-    
+    std::vector<std::shared_ptr<playerBullet>> getBullets();
 
 private:
     std::shared_ptr<Position> _location;

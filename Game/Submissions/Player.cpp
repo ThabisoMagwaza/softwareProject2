@@ -78,3 +78,6 @@ void Player::removeBullet(const int& bullet){
     _bullets.erase(_bullets.begin() + (bullet -1));
 }
 
+std::vector<std::shared_ptr<playerBullet>> Player::getBullets(){
+    return _bullets;
+}

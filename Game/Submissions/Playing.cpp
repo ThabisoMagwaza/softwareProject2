@@ -15,6 +15,8 @@ Playing::Playing(const gameSettings& settings){
     for(int i = 0; i < _settings.numberOfEnemies; i++){
         _enemyMovingAngles.push_back(rand()%361);
     }
+    
+    _positions = std::shared_ptr<objectPositions> (new objectPositions);
 }
 
 
@@ -229,7 +231,35 @@ void Playing::setEnemyMovingAngles(std::vector<int> angles){
 }
 
 void Playing::advanceEnemies() {
-    for(auto i = 0;i<_enemies.size();i++){
+    for(unsigned int i = 0;i<_enemies.size();i++){
         _enemies[i]->move('l',_settings.origin,_settings.enemySpeed,_enemyMovingAngles[i]);
     }
+}
+
+void Playing::updatePositions(){
+    _positions->playerPos = _player->getLocation();
+    
+    //update enemy positions
+    _positions->enemyPos.clear();
+    for(unsigned int i = 0; i<_enemies.size();i++){
+        auto temp = _enemies.at(i)->getLocation();
+        _positions->enemyPos.push_back(temp);
+    }
+    
+    //updated player bullets
+    auto pBullets = _player->getBullets();
+    _positions->playerBulletsPos.clear();
+    for(unsigned int i = 0; i< pBullets.size();i++){
+        auto temp = pBullets.at(i)->getLocation();
+        _positions->playerBulletsPos.push_back(temp);
+    }
+    
+    //update enemy bullets
+    _positions->enemyBulletsPos.clear();
+    for(unsigned int i = 0; i< pBullets.size();i++){
+        auto temp = _enemies.at(i)->getBullet();
+        if(temp != NULL)
+            _positions->playerBulletsPos.push_back(temp->getLocation());
+    }
+    
 }

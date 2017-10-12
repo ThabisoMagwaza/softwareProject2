@@ -23,12 +23,16 @@ public:
     void setLocation( std::shared_ptr<Position> newLocation);
     std::shared_ptr<Position> getLocation();
     std::shared_ptr<boundRect> getBoundRect();
+    std::shared_ptr<enemyBullet> getBullet();
+    void shoot( Position& origin, const double& speed);
+    void removeBullet();
+    
 private:
     double calculateDisplacement(const Position& origin) const;
     std::shared_ptr<Position> _location;
     std::shared_ptr<boundRect> _boundRect;
     std::unique_ptr<enemyMovement> _movement;
-    std::vector<std::unique_ptr<enemyBullet>> _bullets;
+    std::shared_ptr<enemyBullet> _bullet;
     double _displacement; //displacement from center of screen
     double _angle; //current angle on circular moving radius
     int _health;

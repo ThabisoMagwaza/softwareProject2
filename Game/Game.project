@@ -55,6 +55,7 @@
     <File Name="Submissions/gameSettings.h"/>
     <File Name="Submissions/gameSettings.cpp"/>
     <File Name="Submissions/bullet.h"/>
+    <File Name="Submissions/objectPositions.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

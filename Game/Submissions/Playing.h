@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "gameSettings.h"
 #include "Position.h"
+#include "objectPositions.h"
 #include <iostream>
 #include <vector>
 
@@ -21,10 +22,13 @@ public:
    void addEnemyBulllet();
    void addPlayerBullet();
    void resetGame();
+   std::shared_ptr<objectPositions> getPositions();
    
 private:
+    void updatePositions();
     std::unique_ptr<Player> _player;
     std::vector<std::shared_ptr<Enemy>> _enemies; 
     std::vector<int> _enemyMovingAngles;
     gameSettings _settings;
+    std::shared_ptr<objectPositions> _positions;
 };

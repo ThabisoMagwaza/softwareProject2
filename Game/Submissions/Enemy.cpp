@@ -8,6 +8,7 @@ Enemy::Enemy(Position& startPosition, const double& startDisplacement, const dou
     _health = lives;
     _angle = startingAngle;
     _movement = std::unique_ptr<enemyMovement> (new enemyMovement);
+    _bullet = NULL;
 }
 
 
@@ -67,4 +68,18 @@ double Enemy::calculateDisplacement(const Position& origin) const{
 
 std::shared_ptr<boundRect> Enemy::getBoundRect(){
     return _boundRect;
+}
+
+std::shared_ptr<enemyBullet> Enemy::getBullet(){
+    return _bullet;
+}
+
+void Enemy::shoot( Position& origin, const double& speed){
+    if(_bullet == NULL)
+        _bullet = std::shared_ptr<enemyBullet> (new enemyBullet(_location,_displacement,_angle));
+    _bullet->shoot(origin,speed);
+}
+
+void Enemy::removeBullet(){
+    _bullet = NULL;
 }

@@ -73,7 +73,8 @@ Debug/Submissions_Playing.cpp.o: Submissions/Playing.cpp \
  Submissions/playerBullet.h Submissions/boundRect.h \
  Submissions/playerBulletMovement.h Submissions/Enemy.h \
  Submissions/enemyMovement.h Submissions/enemyBullet.h \
- Submissions/gameSettings.h
+ Submissions/enemyBulletMovement.h Submissions/gameSettings.h \
+ Submissions/objectPositions.h
 
 Submissions/Playing.h:
 
@@ -233,4 +234,8 @@ Submissions/enemyMovement.h:
 
 Submissions/enemyBullet.h:
 
+Submissions/enemyBulletMovement.h:
+
 Submissions/gameSettings.h:
+
+Submissions/objectPositions.h:
