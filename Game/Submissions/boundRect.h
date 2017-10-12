@@ -8,8 +8,8 @@
 class boundRect{
 public:
     //creates a bounding rectanle around position 'pos' with height 'h' and width 'w'
-    boundRect(std::shared_ptr<Position> pos, const double& w = 1, const double& h = 1);
-    bool intersects(const boundRect& rhs);
+    boundRect(std::shared_ptr<Position> pos, const double& w = 10, const double& h = 10);
+    bool intersects(std::shared_ptr<boundRect> rhs);
     void scale(const double& factor);
     void update(std::shared_ptr<Position> newPos);
 //    bool operator==(const boundRect& rhs); //checks if all the vertices are the same

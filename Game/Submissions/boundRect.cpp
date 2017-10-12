@@ -19,7 +19,7 @@ boundRect::boundRect(std::shared_ptr<Position> pos, const double& w, const doubl
 //    return true;
 //}
 
-bool boundRect::intersects(const boundRect& rhs){
+bool boundRect::intersects(std::shared_ptr<boundRect> rhs){
     auto numVertices = _vertices.size();
     
     auto lhs_tl_x = _vertices[0]->x; //x-value of topLeft Vertice
@@ -33,8 +33,8 @@ bool boundRect::intersects(const boundRect& rhs){
     
     // return true if any of the vertices of rectangle rhs lie in rectange lhs
     for(unsigned int i = 0;i<numVertices;i++){
-        auto rhs_x = rhs._vertices[i]->x;
-        auto rhs_y = rhs._vertices[i]->y;
+        auto rhs_x = rhs->_vertices[i]->x;
+        auto rhs_y = rhs->_vertices[i]->y;
         if((lhs_tl_x <= rhs_x && rhs_x <= lhs_tr_x) && (lhs_tr_y <= rhs_y && rhs_y <= lhs_br_y)){
             return true;
         }

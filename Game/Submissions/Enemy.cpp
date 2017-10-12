@@ -7,6 +7,7 @@ Enemy::Enemy(Position& startPosition, const double& startDisplacement, const dou
     _displacement = startDisplacement;
     _health = lives;
     _angle = startingAngle;
+    _movement = std::unique_ptr<enemyMovement> (new enemyMovement);
 }
 
 
@@ -38,10 +39,10 @@ void Enemy::move(char dir,const Position& origin,const double& speed, const doub
     switch(dir){
         case 'l':
             _angle = angle;
-            enemyMovement::moveStraightFromCentre(_location,origin, _displacement, _angle,speed);
+            _movement->moveStraightFromCentre(_location,origin, _displacement, _angle,speed);
             break;
         case 's':
-            enemyMovement::spiralFromCenter(_location,origin,_angle, speed);
+            _movement->spiralFromCenter(_location,origin,_angle, speed);
             _displacement =  calculateDisplacement(origin);
             break;
         default:
@@ -64,6 +65,6 @@ double Enemy::calculateDisplacement(const Position& origin) const{
     return sqrt(pow(_location->x - origin.x,2) + pow(_location->y - origin.x,2));
 }
 
-std::shared_ptr<boundRect> Enemy::GetBoundsRect(){
+std::shared_ptr<boundRect> Enemy::getBoundRect(){
     return _boundRect;
 }

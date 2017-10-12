@@ -7,6 +7,7 @@ Player::Player(Position& startPosition, const double& startingAngle, const doubl
     _radius = startingRadius;
     _boundRect = std::shared_ptr<boundRect> (new boundRect(_location));
     _lives = lives;
+    _movement = std::unique_ptr<playerMovement> (new playerMovement);
 }
 
 void Player::setLocation(Position& newLocation){
@@ -38,10 +39,10 @@ double Player::getRadius() const {
 void Player::move(char dir, Position& origin, const double& speed){
     switch(dir){
         case 'r':
-            playerMovement::anticlockwise(_location,origin,_angle,_radius,speed);
+            _movement->anticlockwise(_location,origin,_angle,_radius,speed);
             break;
         case 'l':
-            playerMovement::clockwise(_location,origin,_angle,_radius,speed);
+            _movement->clockwise(_location,origin,_angle,_radius,speed);
             break;
         default:
             break;
@@ -67,5 +68,13 @@ int Player::getLives() const {
 
 bool Player::isAlive() const{
     return _lives != 0;
+}
+
+void Player::addBullet(){
+    _bullets.push_back(std::shared_ptr<playerBullet> (new playerBullet(_location,_radius,_angle)));
+}
+
+void Player::removeBullet(const int& bullet){
+    _bullets.erase(_bullets.begin() + (bullet -1));
 }
 

@@ -69,12 +69,11 @@ Debug/Submissions_Playing.cpp.o: Submissions/Playing.cpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Shader.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Sprite.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp \
- Submissions/playerSFML.h Submissions/Player.h \
- Submissions/playerMovement.h Submissions/Position.h \
- Submissions/boundRect.h Submissions/cannotLoadImage.h \
- Submissions/enemySFML.h Submissions/Enemy.h Submissions/enemyMovement.h \
- Submissions/playerBulletSFML.h Submissions/playerBullet.h \
- Submissions/playerBulletMovement.h
+ Submissions/Player.h Submissions/playerMovement.h Submissions/Position.h \
+ Submissions/playerBullet.h Submissions/boundRect.h \
+ Submissions/playerBulletMovement.h Submissions/Enemy.h \
+ Submissions/enemyMovement.h Submissions/enemyBullet.h \
+ Submissions/gameSettings.h
 
 Submissions/Playing.h:
 
@@ -216,26 +215,22 @@ C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphic
 
 C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp:
 
-Submissions/playerSFML.h:
-
 Submissions/Player.h:
 
 Submissions/playerMovement.h:
 
 Submissions/Position.h:
 
+Submissions/playerBullet.h:
+
 Submissions/boundRect.h:
 
-Submissions/cannotLoadImage.h:
-
-Submissions/enemySFML.h:
+Submissions/playerBulletMovement.h:
 
 Submissions/Enemy.h:
 
 Submissions/enemyMovement.h:
 
-Submissions/playerBulletSFML.h:
+Submissions/enemyBullet.h:
 
-Submissions/playerBullet.h:
-
-Submissions/playerBulletMovement.h:
+Submissions/gameSettings.h:

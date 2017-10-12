@@ -1,25 +1,28 @@
-#pragma once
+#pragma once 
 
-#include "playerBulletMovement.h"
 #include "Position.h"
 #include "boundRect.h"
+#include "playerBulletMovement.h"
 #include <iostream>
+#include <memory>
 
-class playerBullet: public playerBulletMovement{
+class playerBullet{
 public:
-    playerBullet(Position& startPosition, const double& startDisplacement, const double& startAngle);
-    void setLocation( Position& newLocation);
+    playerBullet(std::shared_ptr<Position> startPosition, const double& startDisplacement, const double& startAngle);
+    ~playerBullet();
     std::shared_ptr<Position> getLocation();
-    std::shared_ptr<boundRect> GetBoundsRect();
-//    void setDisplacement(const double& newDisp);
-    double getDisplacement() const ;
-//    void setAngle(const double& newAngle);
-    double getAngle() const ;
+    std::shared_ptr<boundRect> getBoundRect();
+    double getDisplacement() const;
+    double getAngle() const;
     bool isMoving() const;
-    void shoot(Position& origin, const double& speed = 1);
+    void shoot(Position& origin,const double& speed = 1 );
+    static int getNumberOfBullets();
+    
 private:
+    static int _numberOfbullets;
     std::shared_ptr<Position> _location;
     std::shared_ptr<boundRect> _boundRect;
-    double _angle; //angle on the playing circle of the player
-    double _displacement; // distance from origin
+    double _displacement;
+    double _angle; //moving angle 
+    std::unique_ptr<playerBulletMovement> _movement;
 };

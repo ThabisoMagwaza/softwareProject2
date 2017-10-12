@@ -1,24 +1,37 @@
 #include "playerBullet.h"
 #include <iostream>
 
-playerBullet::playerBullet(Position& startPosition, const double& startDisplacement, const double& startAngle){
-    _location = std::shared_ptr<Position> (new Position(startPosition.x,startPosition.y));
+int playerBullet::_numberOfbullets = 0;
+
+playerBullet::playerBullet(std::shared_ptr<Position> startPosition, const double& startDisplacement, const double& startAngle){
+   // _location = std::shared_ptr<Position> (new Position(startPosition.x,startPosition.y));
+    _location = startPosition;
     _boundRect = std::shared_ptr<boundRect> (new boundRect(_location));
     _displacement = startDisplacement;
     _angle = startAngle;
+    _movement = std::unique_ptr<playerBulletMovement> (new playerBulletMovement);
+    _numberOfbullets++;
 }
 
-void playerBullet::setLocation(Position& newLocation){
-    _location->x = newLocation.x;
-    _location->y = newLocation.y;
-    _boundRect->update(_location);
+playerBullet::~playerBullet(){
+    _numberOfbullets--;
 }
+
+int playerBullet::getNumberOfBullets() {
+    return _numberOfbullets;
+}
+
+//void playerBullet::setLocation(Position& newLocation){
+//    _location->x = newLocation.x;
+//    _location->y = newLocation.y;
+//    _boundRect->update(_location);
+//}
 
 std::shared_ptr<Position> playerBullet::getLocation(){
     return _location;
 }
 
-std::shared_ptr<boundRect> playerBullet::GetBoundsRect(){
+std::shared_ptr<boundRect> playerBullet::getBoundRect(){
     return _boundRect;
 }
 
@@ -41,6 +54,6 @@ bool playerBullet::isMoving() const {
 }
 
 void playerBullet::shoot(Position& origin,const double& speed){
-    playerBulletMovement::shootToCenter(_location,origin,_angle,_displacement,speed);
+    _movement->shootToCenter(_location,origin,_angle,_displacement,speed);
     _boundRect->update(_location);
 }
