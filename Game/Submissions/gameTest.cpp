@@ -465,7 +465,7 @@ TEST_CASE("Player and enemy collision detected when they collide"){
     auto numberOfEnemyMoves = 27;
     
     for(auto i = 0;i<numberOfEnemyMoves;i++){
-        testPlay.advanceEnemies(); // after 27 moves the enemy should have collided with the bullet
+        testPlay.advanceEnemies(); // after 27 moves the enemy should have collided with the player
     }
     
     CHECK(testPlay.player_Enemy_Collison(0));
@@ -477,6 +477,37 @@ TEST_CASE("Player and enemy collision retuns false when they don't collide"){
 
     CHECK_FALSE(testPlay.player_Enemy_Collison(0)); //all enemies are initially not colliding with player
 }
+
+TEST_CASE("Enemy bullet and player collision detected when they collide"){
+    gameSettings settings(60,60);
+    Playing testPlay(settings);
+    
+    std::vector<int> enemyAngles;
+    enemyAngles.push_back(90); //make 'enemy 0' move towards player
+    enemyAngles.push_back(0);
+    enemyAngles.push_back(0);
+    
+    testPlay.setEnemyMovingAngles(enemyAngles);
+    
+    auto numberOfEnemyMoves = 27;
+    
+    for(auto i = 0;i<numberOfEnemyMoves;i++){
+        testPlay.advanceEnemyBullets(); // after 27 moves the enemy bullet should have collided with the player
+    }
+    
+    CHECK(testPlay.enemyBullet_player_collision(0));
+    
+}
+
+TEST_CASE("Non-colliding enemy bullet and player are identified to now collide"){
+    gameSettings settings(60,60);
+    Playing testPlay(settings);
+    
+    testPlay.advanceEnemyBullets(); 
+    
+    CHECK_FALSE(testPlay.enemyBullet_player_collision(0));
+}
+
 
 //=================================== Enemy bullet Tests =====================================================
 
@@ -497,7 +528,7 @@ TEST_CASE("Player bullet starting position, displacement and angle set correctly
 }
 
 
-TEST_CASE("enemy Bullet moves straight towards outer cicle when fired once from enemy original position"){
+TEST_CASE("enemy Bullet moves straight towards outer circle when fired once from enemy original position"){
     auto angle = 90;
     auto displacement = 0;
     auto speed = 1;
@@ -519,7 +550,7 @@ TEST_CASE("enemy Bullet moves straight towards outer cicle when fired once from 
     
 }
 
-TEST_CASE("Player Bullet moves straight towards center when fired many times"){
+TEST_CASE("enemy Bullet moves straight towards center when fired many times"){
     auto angle = 180;
     auto displacement = 0;
     auto speed = 2;

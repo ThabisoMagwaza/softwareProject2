@@ -75,11 +75,17 @@ std::shared_ptr<enemyBullet> Enemy::getBullet(){
 }
 
 void Enemy::shoot( Position& origin, const double& speed){
-    if(_bullet == NULL)
-        _bullet = std::shared_ptr<enemyBullet> (new enemyBullet(_location,_displacement,_angle));
     _bullet->shoot(origin,speed);
 }
 
 void Enemy::removeBullet(){
     _bullet = NULL;
+}
+
+void Enemy::addBullet(){
+    _bullet = std::shared_ptr<enemyBullet> (new enemyBullet(_location,_displacement,_angle));
+}
+
+void Enemy::setAngle(const double& angle){
+    _angle = angle;
 }

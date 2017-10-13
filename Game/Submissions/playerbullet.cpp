@@ -4,8 +4,8 @@
 int playerBullet::_numberOfbullets = 0;
 
 playerBullet::playerBullet(std::shared_ptr<Position> startPosition, const double& startDisplacement, const double& startAngle){
-   // _location = std::shared_ptr<Position> (new Position(startPosition.x,startPosition.y));
-    _location = startPosition;
+    _location = std::shared_ptr<Position> (new Position(startPosition->x,startPosition->y));
+    //_location = startPosition;
     _boundRect = std::shared_ptr<boundRect> (new boundRect(_location));
     _displacement = startDisplacement;
     _angle = startAngle;

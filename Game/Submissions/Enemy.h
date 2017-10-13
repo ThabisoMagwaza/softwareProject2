@@ -10,6 +10,7 @@
 
 
 class Enemy{
+//    friend class Playing;
 public:
     Enemy(Position& startPosition, const double& startDisplacement = 0, const double& startingAngle = 0, const int& health = 20);
     void setHealth(const int& lives);
@@ -25,7 +26,9 @@ public:
     std::shared_ptr<boundRect> getBoundRect();
     std::shared_ptr<enemyBullet> getBullet();
     void shoot( Position& origin, const double& speed);
+    void addBullet();
     void removeBullet();
+    void setAngle(const double& angle);
     
 private:
     double calculateDisplacement(const Position& origin) const;

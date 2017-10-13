@@ -10,4 +10,5 @@ gameSettings::gameSettings(const double& w , const double& h)
      playerStartingPosition = Position((screenWidth/2),screenHeight);
      origin = Position((screenWidth/2),(screenHeight/2));
      enemySpeed = 1;
+     enemyBulletSpeed = 1;
 }

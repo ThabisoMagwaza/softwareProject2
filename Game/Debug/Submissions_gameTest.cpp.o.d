@@ -74,6 +74,7 @@ Debug/Submissions_gameTest.cpp.o: Submissions/gameTest.cpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Shader.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Sprite.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp \
+ Submissions/objectPositions.h \
  C:\Users\Thabiso\ Magwaza\Documents\doctest-master\doctest-master\doctest/doctest.h
 
 Submissions/Player.h:
@@ -239,5 +240,7 @@ C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphic
 C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Sprite.hpp:
 
 C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp:
+
+Submissions/objectPositions.h:
 
 C:\Users\Thabiso\ Magwaza\Documents\doctest-master\doctest-master\doctest/doctest.h:

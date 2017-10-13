@@ -10,8 +10,8 @@
   <VirtualDirectory Name="Submissions">
     <File Name="Submissions/Background.cpp"/>
     <File Name="Submissions/Background.h"/>
-    <File Name="Submissions/Game.cpp" ExcludeProjConfig="Debug"/>
-    <File Name="Submissions/Game.h" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/Game.cpp" ExcludeProjConfig=""/>
+    <File Name="Submissions/Game.h" ExcludeProjConfig=""/>
     <File Name="Submissions/Player.cpp"/>
     <File Name="Submissions/Player.h"/>
     <File Name="Submissions/source.cpp" ExcludeProjConfig="Debug"/>

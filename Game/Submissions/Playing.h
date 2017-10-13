@@ -15,13 +15,13 @@ public:
    Playing(const gameSettings& settings);
    bool playerBullet_Enemy_Collision(const int& bullet) const;
    bool player_Enemy_Collison(const int& enemy)  const;
+   bool enemyBullet_player_collision(const int& enemy) const;
    void setEnemyMovingAngles(std::vector<int> angles);
    void advanceEnemies();
    void advancePlayerBullets();
-   void advanceEnemyBullet();
+   void advanceEnemyBullets();
    void addEnemyBulllet();
    void addPlayerBullet();
-   void resetGame();
    std::shared_ptr<objectPositions> getPositions();
    
 private:

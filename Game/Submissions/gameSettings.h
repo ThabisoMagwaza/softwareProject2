@@ -11,6 +11,7 @@ public:
     double playingRadius ;
     double playerStartingAngle ;
     int playerBulletSpeed;
+    int enemyBulletSpeed;
     int enemySpeed;
     int numberOfEnemies ;
     Position playerStartingPosition;

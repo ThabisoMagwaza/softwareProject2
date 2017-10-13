@@ -14,7 +14,6 @@
 
 class Player{
     friend class Playing;
-    friend class Enemy;
 public:
     Player(Position& startPosition, const double& startingAngle, const double& startingRadius, const int& lives = 3);
     void setLocation(Position& newLocation);
