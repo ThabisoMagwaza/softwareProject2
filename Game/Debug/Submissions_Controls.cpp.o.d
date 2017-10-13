@@ -68,9 +68,7 @@ Debug/Submissions_Controls.cpp.o: Submissions/Controls.cpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/RenderWindow.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Shader.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Sprite.hpp \
- C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp \
- Submissions/Player.h Submissions/playerMovement.h Submissions/Position.h \
- Submissions/playerBullet.h Submissions/playerBulletMovement.h
+ C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp
 
 Submissions/Controls.h:
 
@@ -211,13 +209,3 @@ C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphic
 C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Sprite.hpp:
 
 C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp:
-
-Submissions/Player.h:
-
-Submissions/playerMovement.h:
-
-Submissions/Position.h:
-
-Submissions/playerBullet.h:
-
-Submissions/playerBulletMovement.h:

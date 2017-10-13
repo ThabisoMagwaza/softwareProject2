@@ -8,6 +8,7 @@
 #include "Playing.h"
 #include "GameOver.h"
 #include "Display.h"
+#include "Controls.h"
 
 class Game{
 public:
@@ -28,4 +29,5 @@ private:
     static std::unique_ptr<Playing> _playing;
     static gameSettings _settings;
     static Display _display;
+    static Controls _controls;
 };

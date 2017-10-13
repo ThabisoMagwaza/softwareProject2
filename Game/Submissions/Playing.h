@@ -22,6 +22,7 @@ public:
    void advanceEnemyBullets();
    void addEnemyBulllet();
    void addPlayerBullet();
+   void movePlayer(char dir);
    std::shared_ptr<objectPositions> getPositions();
    
 private:

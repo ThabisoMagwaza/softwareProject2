@@ -11,6 +11,7 @@ public:
     double playingRadius ;
     double playerStartingAngle ;
     int playerBulletSpeed;
+    int playerSpeed;
     int enemyBulletSpeed;
     int enemySpeed;
     int numberOfEnemies ;
@@ -18,6 +19,7 @@ public:
     Position origin ;
     std::string playerImageDirectory;
     std::string enemyImageDirectory;
+    Position playerImageCenter;
 };
 
 

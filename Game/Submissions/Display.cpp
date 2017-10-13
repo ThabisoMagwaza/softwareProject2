@@ -3,8 +3,7 @@
 Display::Display(const gameSettings& settings){
     _settings = settings;
     _window = std::shared_ptr<sf::RenderWindow> (new sf::RenderWindow(sf::VideoMode(_settings.screenWidth,_settings.screenHeight,32),"Game",sf::Style::Close | sf::Style::Titlebar));
-    //_window.create(sf::VideoMode(_settings.screenWidth,_settings.screenHeight,32),"Game",sf::Style::Close | sf::Style::Titlebar);
-    //_window.setKeyRepeatEnabled(false);
+    _window->setKeyRepeatEnabled(false);
     
     makePlayer();
 }
@@ -17,6 +16,9 @@ void Display::makePlayer(){
     }
     
     _playerSprite.setTexture(_playerTexture);
+    _playerSprite.setOrigin(_settings.playerImageCenter.x,_settings.playerImageCenter.y);
+    
+    _playerSprite.scale(sf::Vector2f(0.25,0.25));
 }
 
 void Display::drawPlayer(){
@@ -24,8 +26,7 @@ void Display::drawPlayer(){
 }
 
 void Display::updatePlayer(){
-    //auto temp = sf::Vector2f(_positions->playerPos->x,_positions->playerPos->y);
-    auto temp = sf::Vector2f(0,0);
+    auto temp = sf::Vector2f(_positions->playerPos->x,_positions->playerPos->y);
     _playerSprite.setPosition(temp);
 }
 

@@ -5,6 +5,7 @@
 Background Game::_background;
 
 gameSettings Game::_settings;
+Controls Game::_controls;
 std::unique_ptr<Playing> Game::_playing = std::unique_ptr<Playing>(new Playing(Game::getSettings()));
 Display Game::_display = Display(Game::_settings);
 
@@ -100,6 +101,12 @@ bool Game::play(){
             _display.closeWindow();
             return false;
         }
+    }
+    
+    if(_controls.checkPress() == 'r'){
+        _playing->movePlayer('r');
+    }else if(_controls.checkPress() == 'l'){
+        _playing->movePlayer('l');
     }
     
     return true;
