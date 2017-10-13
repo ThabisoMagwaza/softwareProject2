@@ -278,3 +278,9 @@ void Playing::advanceEnemyBullets(){
         _enemies[i]->shoot(_settings.origin,_settings.enemyBulletSpeed);
     }
 }
+
+std::shared_ptr<objectPositions> Playing::getPositions(){
+    updatePositions();
+    return _positions;
+}
+

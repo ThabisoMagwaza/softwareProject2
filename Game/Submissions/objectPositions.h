@@ -5,6 +5,7 @@
 
 class objectPositions{
     friend class Playing;
+    friend class Display;
 private:
     std::shared_ptr<Position> playerPos = NULL;
     std::vector<std::shared_ptr<Position>> enemyPos;

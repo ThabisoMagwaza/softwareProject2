@@ -14,10 +14,10 @@
     <File Name="Submissions/Game.h" ExcludeProjConfig=""/>
     <File Name="Submissions/Player.cpp"/>
     <File Name="Submissions/Player.h"/>
-    <File Name="Submissions/source.cpp" ExcludeProjConfig="Debug"/>
+    <File Name="Submissions/source.cpp" ExcludeProjConfig=""/>
     <File Name="Submissions/SplashScreen.cpp"/>
     <File Name="Submissions/SplashScreen.h"/>
-    <File Name="Submissions/gameTest.cpp" ExcludeProjConfig=""/>
+    <File Name="Submissions/gameTest.cpp" ExcludeProjConfig="Debug"/>
     <File Name="Submissions/playerMovement.h"/>
     <File Name="Submissions/playerMovement.cpp"/>
     <File Name="Submissions/Position.h"/>
@@ -56,6 +56,8 @@
     <File Name="Submissions/gameSettings.cpp"/>
     <File Name="Submissions/bullet.h"/>
     <File Name="Submissions/objectPositions.h"/>
+    <File Name="Submissions/Display.h"/>
+    <File Name="Submissions/Display.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

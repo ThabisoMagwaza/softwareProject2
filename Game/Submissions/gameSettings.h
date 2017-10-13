@@ -16,6 +16,8 @@ public:
     int numberOfEnemies ;
     Position playerStartingPosition;
     Position origin ;
+    std::string playerImageDirectory;
+    std::string enemyImageDirectory;
 };
 
 

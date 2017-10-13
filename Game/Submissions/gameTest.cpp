@@ -8,7 +8,6 @@
 #include "gameSettings.h"
 #include "Playing.h"
 #include <cmath>
-#include <SFML/Graphics.hpp>
 #include <ctime>
 #include <iostream>
 #include <memory>

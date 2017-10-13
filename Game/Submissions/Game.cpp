@@ -6,20 +6,15 @@ Background Game::_background;
 
 gameSettings Game::_settings;
 std::unique_ptr<Playing> Game::_playing = std::unique_ptr<Playing>(new Playing(Game::getSettings()));
+Display Game::_display = Display(Game::_settings);
 
 //This function initializes the game!
 void Game::GameStart(){
-    //Window1.create(sf::VideoMode(_screenWidth,_screenHeight,32),"Game",sf::Style::Close | sf::Style::Titlebar);
-    //Window1.setKeyRepeatEnabled(false);
-    
-    
-    //_playing.initializeWindow(Window1, _screenHeight/2);
-    //_playing.resetGame("resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2),"resources/villain2.png",sf::Vector2f((_screenWidth/2),(_screenHeight/2)),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),"resources/villain.png");
-    
+    Game::Mode = Game::GameMode::Playing;
     while(!isQuiting()){
     MainLoop();
     }   
-    //Window1.close();
+    _display.closeWindow();
 }
 //Checks if the game is still played or no!
 bool Game::isQuiting(){ return (Mode==Game::GameMode::Quiting);}
@@ -45,12 +40,11 @@ void Game::MainLoop(){
             case Game::GameMode::Playing:
                 //dispBackground();
             
-//                if(!_playing.play()){
-//                    Mode = Game::GameMode::GameOver;
-//                    //_playing.initializeWindow(Window1, _screenHeight/2);
-//                    //_playing.resetGame("resources/ship.png",sf::Vector2f((_screenWidth/2),_screenHeight),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),(_screenHeight/2),"resources/villain2.png",sf::Vector2f((_screenWidth/2),(_screenHeight/2)),sf::Vector2f((_screenWidth/2),(_screenHeight/2)),"resources/villain.png");
-//                    
-//                }
+                if(!play()){
+                    Mode = Game::GameMode::GameOver;
+                }
+                
+                _display.showGame(_playing->getPositions());
                // Window1.clear();
 //                
 //                _playing.display();
@@ -95,6 +89,20 @@ void Game::resetGame(){
 
 gameSettings Game::getSettings() {
     return _settings;
+}
+
+bool Game::play(){
+    sf::Event EventNow;
+    
+    while(_display.getWindow()->pollEvent(EventNow)){
+        if(EventNow.type == sf::Event::Closed){
+            Mode = Game::GameMode::Quiting;
+            _display.closeWindow();
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 Game::GameMode Game::Mode = Game::GameMode::Splash;
