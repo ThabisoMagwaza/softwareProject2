@@ -10,6 +10,7 @@ using std::shared_ptr;
 using std::make_shared;
 
 struct ScreenData{
+     ScreenData();
     //Directories 
      string SplashDirectory("resources/im1.jpg");
      string GameOverDirectory("resources/im.jpg");
