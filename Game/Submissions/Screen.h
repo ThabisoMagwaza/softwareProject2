@@ -12,14 +12,14 @@ using std::shared_ptr;
 
 class Screen{
   public:  
-    Screen(const string& _directory, shared_ptr <vector<string>> _text, shared_ptr <vector<Position>> _position);
+    Screen(const string& _directory, vector<string> _text = vector<string>{}, vector<Position> _position = vector<Position>{});
     //void setText(const string& text, vector <string> _text); 
     //void setDirectory(const string& directory);
     string getDirectory() const;
-    shared_ptr <vector <string>> getText() const;
-    shared_ptr <vector<Position>> getPosition()const;
+    vector <string> getText() ;
+    vector<Position> getPosition();
   private:  
-    shared_ptr <vector <string>>text;
+    vector <string> text;
     string directory;
-    shared_ptr<Position> position;
+    vector<Position> position;
 };

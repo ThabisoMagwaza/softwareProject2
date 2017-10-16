@@ -10,12 +10,15 @@
 #include "Display.h"
 #include "Controls.h"
 #include "GameMode.h"
+#include "Screen.h"
+#include "ScreenData.h"
 
 class Game{
 public:
      static void GameStart();
      static gameSettings getSettings() ;
 private:
+	static void makeScreens();
     static bool play();
     static void resetGame();
     static void MainLoop();
@@ -29,4 +32,6 @@ private:
     static gameSettings _settings;
     static Display _display;
     static Controls _controls;
+	static std::vector<Screen> _screens;
+	static ScreenData _screenData;
 };

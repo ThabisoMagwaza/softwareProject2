@@ -9,6 +9,10 @@ Display::Display(const gameSettings& settings){
     makeEnemies();
 	makePlayerBullets();
 	makeEnemyBullets();
+	
+	_splashScreen = 0;
+	_background = 1;
+	_gameOverScreen = 2;
 }
 
 void Display::makePlayer(){
@@ -37,6 +41,7 @@ void Display::showGame(std::shared_ptr<objectPositions> newPositions,const GameM
     _window->clear();
     switch(mode){
         case GameMode::Playing:
+			drawScreen(_background);
             updatePosition(newPositions);
             updatePlayer();
             drawPlayer();
@@ -46,6 +51,7 @@ void Display::showGame(std::shared_ptr<objectPositions> newPositions,const GameM
 			drawPlayerBullets();
 			updateEnemyBullets();
 			drawEnemyBullets();
+			
             break;
         case GameMode::Splash:
             break;
@@ -162,3 +168,28 @@ void Display::updateEnemyBullets(){
 		_enemyBulletSprites.at(i)->setPosition(_positions->enemyBulletsPos.at(i)->x,_positions->enemyBulletsPos.at(i)->y);
 	}
 }
+
+void Display::makeScreens(std::vector<Screen> screens){
+	for(unsigned int i = 0;i<screens.size();i++){
+		auto tempTexture = std::make_shared<sf::Texture>();
+		tempTexture->loadFromFile(screens.at(i).getDirectory());
+		_screenTextures.push_back(tempTexture);
+		auto tempSprite = std::make_shared<sf::Sprite>();
+		tempSprite->setTexture(*tempTexture);
+		_screenSprites.push_back(tempSprite);
+	}
+	
+}
+
+void Display::drawScreen(const int& screen){
+	_window->draw(*(_screenSprites.at(screen)));
+}
+
+
+//void Display::setText(const Screen& screen){
+//	auto tempTextVec = screen.getText();
+//	for(unsigned int i = 0; i<tempTextVec.size();i++){
+//		auto tempText = std::make_shared<sf::Text>(tempTextVec.at(i));
+//		_sceenText
+//	}
+//}

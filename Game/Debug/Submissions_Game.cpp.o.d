@@ -76,7 +76,8 @@ Debug/Submissions_Game.cpp.o: Submissions/Game.cpp Submissions/Game.h \
  Submissions/enemyBulletMovement.h Submissions/gameSettings.h \
  Submissions/objectPositions.h Submissions/GameOver.h \
  Submissions/Display.h Submissions/cannotLoadImage.h \
- Submissions/GameMode.h Submissions/Controls.h Submissions/SplashScreen.h
+ Submissions/GameMode.h Submissions/Screen.h Submissions/ScreenData.h \
+ Submissions/Controls.h Submissions/SplashScreen.h
 
 Submissions/Game.h:
 
@@ -253,6 +254,10 @@ Submissions/Display.h:
 Submissions/cannotLoadImage.h:
 
 Submissions/GameMode.h:
+
+Submissions/Screen.h:
+
+Submissions/ScreenData.h:
 
 Submissions/Controls.h:
 

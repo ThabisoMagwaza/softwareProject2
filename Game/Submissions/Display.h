@@ -8,6 +8,7 @@
 #include "gameSettings.h"
 #include "cannotLoadImage.h"
 #include "GameMode.h"
+#include "Screen.h"
 
 class Display{
 public:
@@ -28,9 +29,18 @@ public:
 	void makeEnemyBullets();
 	void drawEnemyBullets();
 	void updateEnemyBullets();
+	void makeScreens(std::vector<Screen> screens);
+	void drawScreen(const int& screen);
     
 private:
+	int _splashScreen;
+	int _background;
+	int _gameOverScreen;
+	void setText(const Screen& screen);
     std::shared_ptr<sf::RenderWindow> _window;
+	std::vector<std::shared_ptr<sf::Sprite>> _screenSprites;
+	std::vector<std::shared_ptr<sf::Texture>> _screenTextures;
+	std::vector<std::vector<std::shared_ptr<sf::Text>>> _sceenText;
     sf::Sprite _playerSprite;
     sf::Texture _playerTexture;
     std::vector<std::shared_ptr<sf::Sprite>> _enemySprites;

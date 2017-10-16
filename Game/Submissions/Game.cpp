@@ -9,10 +9,14 @@ Controls Game::_controls;
 std::unique_ptr<Playing> Game::_playing = std::unique_ptr<Playing>(new Playing(Game::getSettings()));
 Display Game::_display = Display(Game::_settings);
 GameMode Game::Mode = GameMode::Splash;
+ScreenData Game::_screenData;
+std::vector<Screen> Game::_screens;
 
 //This function initializes the game!
 void Game::GameStart(){
     Mode = GameMode::Playing;
+	makeScreens();
+	_display.makeScreens(_screens);
     while(!isQuiting()){
     MainLoop();
     }   
@@ -85,3 +89,10 @@ bool Game::play(){
     
     return true;
 }
+
+void Game::makeScreens(){
+	_screens.push_back(Screen(_screenData.SplashDirectory,_screenData.SplashText,_screenData.SplashPos)); //splashscreen
+	_screens.push_back(Screen(_screenData.BackGroundDirectory)); //background
+	_screens.push_back(Screen(_screenData.GameOverDirectory,_screenData.GOtext,_screenData.GOpos)); //Game over
+}
+

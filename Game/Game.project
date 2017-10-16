@@ -59,6 +59,9 @@
     <File Name="Submissions/Display.h"/>
     <File Name="Submissions/Display.cpp"/>
     <File Name="Submissions/GameMode.h"/>
+    <File Name="Submissions/Screen.cpp"/>
+    <File Name="Submissions/Screen.h"/>
+    <File Name="Submissions/ScreenData.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
