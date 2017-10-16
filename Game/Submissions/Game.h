@@ -9,6 +9,7 @@
 #include "GameOver.h"
 #include "Display.h"
 #include "Controls.h"
+#include "GameMode.h"
 
 class Game{
 public:
@@ -23,8 +24,6 @@ private:
     static void dispBackground();
     static void dispGameOver();
     static Background _background;
-    enum class GameMode {Playing, Quiting, Splash, GameOver};
-    static sf::RenderWindow Window1;
     static GameMode Mode;
     static std::unique_ptr<Playing> _playing;
     static gameSettings _settings;

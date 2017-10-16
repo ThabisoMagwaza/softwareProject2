@@ -48,6 +48,8 @@ TEST_CASE("Position equality operator returns false for inequivalent positions")
 
 //=================================== Bounding rectangle Tests =====================================================
 
+//Default boundRect is a square with sides of length 10
+
 TEST_CASE("Bounding rectangle correctly set"){
     auto testPos = std::shared_ptr<Position> (new Position(3,3));
     boundRect testRect(testPos,1,2);
@@ -142,6 +144,28 @@ TEST_CASE("Un-intersecting rectangles don't intersect"){
     auto testRect2 = std::shared_ptr<boundRect> (new boundRect(testPos2,1,2));
     
     CHECK_FALSE(testRect1->intersects(testRect2));
+}
+
+TEST_CASE("BoundRect Dimensions changed correctly"){
+    auto testPos = std::shared_ptr<Position> (new Position(5,5));
+    auto testRect = boundRect(testPos);
+    testRect.changeVertices(2,2);
+    
+    auto vertices = testRect.getVertices();
+    
+    auto topLeft = (*vertices[0]); 
+    Position topLeft_exp(3,3); // expected position
+    
+    auto topRight = (*vertices[1]); 
+    Position topRight_exp(7,3);
+    
+    auto bottomLeft = (*vertices[2]);
+    Position bottomLeft_exp(3,7);
+    
+    auto bottomRight = (*vertices[3]);
+    Position bottomRight_exp(7,7);
+    
+    CHECK(((topLeft == topLeft_exp) && (topRight == topRight_exp) && (bottomLeft == bottomLeft_exp) && (bottomRight == bottomRight_exp)));
 }
 
 //=================================== Player bullet Tests =====================================================
@@ -426,6 +450,10 @@ TEST_CASE(" can remove player bullet"){
 
 TEST_CASE("Player bullet and enemy collision detected when they collide"){
     gameSettings settings(60,60);
+    settings.playerStartingPosition = Position(30,60);
+    settings.playingRadius = 30;
+    settings.enemyBoundRectSize = Position(10,10);
+    settings.playerBoundRectSize = Position(10,10);
     
     Playing testPlay(settings);
     
@@ -442,6 +470,10 @@ TEST_CASE("Player bullet and enemy collision detected when they collide"){
 
 TEST_CASE("Player bullet and enemy collision is false when they don't collide"){
     gameSettings settings(60,60);
+    settings.playerStartingPosition = Position(30,60);
+    settings.playingRadius = 30;
+    settings.enemyBoundRectSize = Position(10,10);
+    settings.playerBoundRectSize = Position(10,10);
     
     Playing testPlay(settings);
     
@@ -452,6 +484,12 @@ TEST_CASE("Player bullet and enemy collision is false when they don't collide"){
 
 TEST_CASE("Player and enemy collision detected when they collide"){
     gameSettings settings(60,60);
+    settings.playerStartingPosition = Position(30,60);
+    settings.playingRadius = 30;
+    settings.enemyBoundRectSize = Position(10,10);
+    settings.playerBoundRectSize = Position(10,10);
+    
+    
     Playing testPlay(settings);
     
     std::vector<int> enemyAngles;
@@ -467,11 +505,16 @@ TEST_CASE("Player and enemy collision detected when they collide"){
         testPlay.advanceEnemies(); // after 27 moves the enemy should have collided with the player
     }
     
+    
+    
     CHECK(testPlay.player_Enemy_Collison(0));
 }
 
 TEST_CASE("Player and enemy collision retuns false when they don't collide"){
     gameSettings settings(60,60);
+    settings.playerStartingPosition = Position(30,60);
+    settings.enemyBoundRectSize = Position(10,10);
+    settings.playerBoundRectSize = Position(10,10);
     Playing testPlay(settings);
 
     CHECK_FALSE(testPlay.player_Enemy_Collison(0)); //all enemies are initially not colliding with player
@@ -479,6 +522,11 @@ TEST_CASE("Player and enemy collision retuns false when they don't collide"){
 
 TEST_CASE("Enemy bullet and player collision detected when they collide"){
     gameSettings settings(60,60);
+    settings.playerStartingPosition = Position(30,60);
+    settings.playingRadius = 30;
+    settings.enemyBoundRectSize = Position(10,10);
+    settings.playerBoundRectSize = Position(10,10);
+    
     Playing testPlay(settings);
     
     std::vector<int> enemyAngles;
@@ -500,6 +548,10 @@ TEST_CASE("Enemy bullet and player collision detected when they collide"){
 
 TEST_CASE("Non-colliding enemy bullet and player are identified to now collide"){
     gameSettings settings(60,60);
+    settings.playerStartingPosition = Position(30,60);
+    settings.playingRadius = 30;
+    settings.enemyBoundRectSize = Position(10,10);
+    settings.playerBoundRectSize = Position(10,10);
     Playing testPlay(settings);
     
     testPlay.advanceEnemyBullets(); 

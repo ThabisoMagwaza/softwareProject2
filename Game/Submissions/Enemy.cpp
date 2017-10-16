@@ -49,6 +49,7 @@ void Enemy::move(char dir,const Position& origin,const double& speed, const doub
         default:
             break;
     }
+	//_displacement = calculateDisplacement(origin);
     _boundRect->update(_location);
 }
 

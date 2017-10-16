@@ -68,12 +68,15 @@ Debug/Submissions_source.cpp.o: Submissions/source.cpp Submissions/Game.h \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Shader.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Sprite.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp \
- Submissions/Player.h Submissions/playerMovement.h Submissions/Position.h \
- Submissions/Background.h Submissions/Movement.h Submissions/playerSFML.h \
- Submissions/cannotLoadImage.h Submissions/enemySFML.h \
- Submissions/Enemy.h Submissions/enemyMovement.h Submissions/Playing.h \
- Submissions/playerBulletSFML.h Submissions/playerBullet.h \
- Submissions/playerBulletMovement.h Submissions/GameOver.h
+ Submissions/Background.h Submissions/Playing.h Submissions/Player.h \
+ Submissions/playerMovement.h Submissions/Position.h \
+ Submissions/playerBullet.h Submissions/boundRect.h \
+ Submissions/playerBulletMovement.h Submissions/Enemy.h \
+ Submissions/enemyMovement.h Submissions/enemyBullet.h \
+ Submissions/enemyBulletMovement.h Submissions/gameSettings.h \
+ Submissions/objectPositions.h Submissions/GameOver.h \
+ Submissions/Display.h Submissions/cannotLoadImage.h \
+ Submissions/GameMode.h Submissions/Controls.h
 
 Submissions/Game.h:
 
@@ -215,32 +218,40 @@ C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphic
 
 C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp:
 
+Submissions/Background.h:
+
+Submissions/Playing.h:
+
 Submissions/Player.h:
 
 Submissions/playerMovement.h:
 
 Submissions/Position.h:
 
-Submissions/Background.h:
+Submissions/playerBullet.h:
 
-Submissions/Movement.h:
+Submissions/boundRect.h:
 
-Submissions/playerSFML.h:
-
-Submissions/cannotLoadImage.h:
-
-Submissions/enemySFML.h:
+Submissions/playerBulletMovement.h:
 
 Submissions/Enemy.h:
 
 Submissions/enemyMovement.h:
 
-Submissions/Playing.h:
+Submissions/enemyBullet.h:
 
-Submissions/playerBulletSFML.h:
+Submissions/enemyBulletMovement.h:
 
-Submissions/playerBullet.h:
+Submissions/gameSettings.h:
 
-Submissions/playerBulletMovement.h:
+Submissions/objectPositions.h:
 
 Submissions/GameOver.h:
+
+Submissions/Display.h:
+
+Submissions/cannotLoadImage.h:
+
+Submissions/GameMode.h:
+
+Submissions/Controls.h:

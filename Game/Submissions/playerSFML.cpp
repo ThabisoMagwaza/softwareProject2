@@ -4,6 +4,7 @@ playerSFML::playerSFML(std::string imageDir,const sf::Vector2f& startPosition, c
 //:Player(imageDir,Position::Position(startPosition.x,startPosition.y),Position::Position(startPosition.x,startPosition.y),radius)
 {
     _texture = std::shared_ptr<sf::Texture> (new sf::Texture);
+    //_texture = std::make_shared(sf::Texture);
     _sprite = std::shared_ptr<sf::Sprite> (new sf::Sprite);
     
     if(!_texture->loadFromFile(imageDir)){

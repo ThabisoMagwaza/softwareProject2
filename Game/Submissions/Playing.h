@@ -26,6 +26,9 @@ public:
    std::shared_ptr<objectPositions> getPositions();
    
 private:
+    void makeEnemybullets();
+    void removeEnemy(const int& enemy);
+    void setBoundsRects();
     void updatePositions();
     std::unique_ptr<Player> _player;
     std::vector<std::shared_ptr<Enemy>> _enemies; 

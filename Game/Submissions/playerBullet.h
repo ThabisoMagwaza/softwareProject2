@@ -13,6 +13,7 @@ public:
     std::shared_ptr<Position> getLocation();
     std::shared_ptr<boundRect> getBoundRect();
     double getDisplacement() const;
+	void setDisplacement(const double& disp);
     double getAngle() const;
     bool isMoving() const;
     void shoot(Position& origin,const double& speed = 1 );

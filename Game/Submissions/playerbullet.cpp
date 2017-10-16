@@ -57,3 +57,7 @@ void playerBullet::shoot(Position& origin,const double& speed){
     _movement->shootToCenter(_location,origin,_angle,_displacement,speed);
     _boundRect->update(_location);
 }
+
+void playerBullet::setDisplacement(const double& disp){
+	_displacement = disp;
+}

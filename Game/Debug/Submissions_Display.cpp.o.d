@@ -70,7 +70,8 @@ Debug/Submissions_Display.cpp.o: Submissions/Display.cpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Sprite.hpp \
  C:\Users\Thabiso\ Magwaza\Desktop\ProgramSetups\win-64\sfml\include/SFML/Graphics/Text.hpp \
  Submissions/objectPositions.h Submissions/Position.h \
- Submissions/gameSettings.h Submissions/cannotLoadImage.h
+ Submissions/gameSettings.h Submissions/cannotLoadImage.h \
+ Submissions/GameMode.h
 
 Submissions/Display.h:
 
@@ -219,3 +220,5 @@ Submissions/Position.h:
 Submissions/gameSettings.h:
 
 Submissions/cannotLoadImage.h:
+
+Submissions/GameMode.h:

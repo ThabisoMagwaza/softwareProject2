@@ -71,11 +71,13 @@ bool Player::isAlive() const{
 }
 
 void Player::addBullet(){
-    _bullets.push_back(std::shared_ptr<playerBullet> (new playerBullet(_location,_radius,_angle)));
+    auto temp = std::shared_ptr<playerBullet> (new playerBullet(_location,_radius,_angle));
+    //temp->getBoundRect()->changeVertices()
+    _bullets.push_back(temp);
 }
 
 void Player::removeBullet(const int& bullet){
-    _bullets.erase(_bullets.begin() + (bullet -1));
+    _bullets.erase(_bullets.begin() + (bullet));
 }
 
 std::vector<std::shared_ptr<playerBullet>> Player::getBullets(){

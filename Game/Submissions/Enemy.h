@@ -29,9 +29,9 @@ public:
     void addBullet();
     void removeBullet();
     void setAngle(const double& angle);
+	double calculateDisplacement(const Position& origin) const;
     
 private:
-    double calculateDisplacement(const Position& origin) const;
     std::shared_ptr<Position> _location;
     std::shared_ptr<boundRect> _boundRect;
     std::unique_ptr<enemyMovement> _movement;

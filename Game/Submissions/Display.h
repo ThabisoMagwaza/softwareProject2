@@ -7,6 +7,7 @@
 #include "objectPositions.h"
 #include "gameSettings.h"
 #include "cannotLoadImage.h"
+#include "GameMode.h"
 
 class Display{
 public:
@@ -15,20 +16,29 @@ public:
     void drawPlayer(); 
     void updatePosition(std::shared_ptr<objectPositions> newPositions);
     void updatePlayer(); //updates sprite positions  
-    void showGame(std::shared_ptr<objectPositions> newPositions);
+    void showGame(std::shared_ptr<objectPositions> newPositions,const GameMode& mode);
     void closeWindow();
     std::shared_ptr<sf::RenderWindow> getWindow();
+    void makeEnemies();
+    void drawEnemies();
+	void updateEnemies();
+	void makePlayerBullets();
+	void drawPlayerBullets();
+	void updatePlayerBullets();
+	void makeEnemyBullets();
+	void drawEnemyBullets();
+	void updateEnemyBullets();
     
 private:
     std::shared_ptr<sf::RenderWindow> _window;
     sf::Sprite _playerSprite;
     sf::Texture _playerTexture;
-    std::vector<sf::Sprite> _enemySprites;
-    std::vector<sf::Texture> _enemyTextures;
-    std::vector<sf::Sprite> _playerBulletSprites;
-    std::vector<sf::Texture> _playerBulletTextures;
-    std::vector<sf::Sprite> _enemyBulletSprites;
-    std::vector<sf::Texture> _enemyBulletTextures;
+    std::vector<std::shared_ptr<sf::Sprite>> _enemySprites;
+    std::vector<std::shared_ptr<sf::Texture>> _enemyTextures;
+    std::vector<std::shared_ptr<sf::Sprite>> _playerBulletSprites;
+    std::vector<std::shared_ptr<sf::Texture>> _playerBulletTextures;
+    std::vector<std::shared_ptr<sf::Sprite>> _enemyBulletSprites;
+    std::vector<std::shared_ptr<sf::Texture>> _enemyBulletTextures;
     std::shared_ptr<objectPositions> _positions;
     gameSettings _settings;
 };

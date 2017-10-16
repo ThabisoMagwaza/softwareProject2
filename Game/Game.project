@@ -58,6 +58,7 @@
     <File Name="Submissions/objectPositions.h"/>
     <File Name="Submissions/Display.h"/>
     <File Name="Submissions/Display.cpp"/>
+    <File Name="Submissions/GameMode.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

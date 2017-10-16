@@ -12,12 +12,11 @@ public:
     bool intersects(std::shared_ptr<boundRect> rhs);
     void scale(const double& factor);
     void update(std::shared_ptr<Position> newPos);
-//    bool operator==(const boundRect& rhs); //checks if all the vertices are the same
+    void changeVertices(const double& w, const double& h);
     std::vector<std::shared_ptr<Position>> getVertices();
 
 private:
     void addVertice(double x, double y);
-    void changeVertices(const double& w, const double& h);
     std::vector<std::shared_ptr<Position>> _vertices;
     std::shared_ptr<Position> _center;
     double _width;

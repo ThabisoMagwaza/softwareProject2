@@ -11,14 +11,6 @@ boundRect::boundRect(std::shared_ptr<Position> pos, const double& w, const doubl
     _center = pos;
 }
 
-//bool boundRect::operator ==(const boundRect& rhs){
-//    for(unsigned int i = 0; i<_vertices.size();i++ ){
-//        if(!((*_vertices[i]) == (*(rhs._vertices[i]))))
-//            return false;
-//    }
-//    return true;
-//}
-
 bool boundRect::intersects(std::shared_ptr<boundRect> rhs){
     auto numVertices = _vertices.size();
     

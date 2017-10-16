@@ -15,11 +15,22 @@ public:
     int enemyBulletSpeed;
     int enemySpeed;
     int numberOfEnemies ;
+	unsigned int maxPlayerBullets;
+	int enemyBulletShootingDistance;
+    Position playerBoundRectSize;
+    Position enemyBoundRectSize;
+//    Position playerBulletBoundRectSize;
+//    Position enemyBulletBoundRectSize;
     Position playerStartingPosition;
     Position origin ;
     std::string playerImageDirectory;
     std::string enemyImageDirectory;
+	std::string playerBulletImageDir;
+	std::string enemyBulletImageDir;
     Position playerImageCenter;
+    Position enemyImageCenter;
+	Position playerBulletImageCenter;
+	Position enemyBulletImageCenter;
 };
 
 
