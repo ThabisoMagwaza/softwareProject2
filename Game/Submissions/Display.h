@@ -36,11 +36,12 @@ private:
 	int _splashScreen;
 	int _background;
 	int _gameOverScreen;
-	void setText(const Screen& screen);
+	void setText( Screen& screen);
+	void drawText(const int& screen);
     std::shared_ptr<sf::RenderWindow> _window;
 	std::vector<std::shared_ptr<sf::Sprite>> _screenSprites;
 	std::vector<std::shared_ptr<sf::Texture>> _screenTextures;
-	std::vector<std::vector<std::shared_ptr<sf::Text>>> _sceenText;
+	std::vector<std::vector<std::shared_ptr<sf::Text>>> _screenText;
     sf::Sprite _playerSprite;
     sf::Texture _playerTexture;
     std::vector<std::shared_ptr<sf::Sprite>> _enemySprites;
@@ -51,4 +52,5 @@ private:
     std::vector<std::shared_ptr<sf::Texture>> _enemyBulletTextures;
     std::shared_ptr<objectPositions> _positions;
     gameSettings _settings;
+	sf::Font _font;
 };

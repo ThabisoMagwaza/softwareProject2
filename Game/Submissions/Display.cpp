@@ -13,6 +13,9 @@ Display::Display(const gameSettings& settings){
 	_splashScreen = 0;
 	_background = 1;
 	_gameOverScreen = 2;
+	
+	//sf::Font font;
+	_font.loadFromFile("resources/mbhele.ttf");
 }
 
 void Display::makePlayer(){
@@ -51,11 +54,14 @@ void Display::showGame(std::shared_ptr<objectPositions> newPositions,const GameM
 			drawPlayerBullets();
 			updateEnemyBullets();
 			drawEnemyBullets();
-			
             break;
         case GameMode::Splash:
+			drawScreen(_splashScreen);
+			drawText(_splashScreen);
             break;
         case GameMode::GameOver:
+			drawScreen(_gameOverScreen);
+			drawText(_gameOverScreen);
             break;
         default:
             break;
@@ -177,6 +183,8 @@ void Display::makeScreens(std::vector<Screen> screens){
 		auto tempSprite = std::make_shared<sf::Sprite>();
 		tempSprite->setTexture(*tempTexture);
 		_screenSprites.push_back(tempSprite);
+		
+		setText(screens.at(i)); ///set the screen's text
 	}
 	
 }
@@ -186,10 +194,25 @@ void Display::drawScreen(const int& screen){
 }
 
 
-//void Display::setText(const Screen& screen){
-//	auto tempTextVec = screen.getText();
-//	for(unsigned int i = 0; i<tempTextVec.size();i++){
-//		auto tempText = std::make_shared<sf::Text>(tempTextVec.at(i));
-//		_sceenText
-//	}
-//}
+void Display::setText(Screen& screen){
+	auto tempTextVec = screen.getText();
+	auto tempTextPos = screen.getPosition();
+	
+	std::vector<std::shared_ptr<sf::Text>> textVec;
+	for(unsigned int i = 0; i<tempTextVec.size();i++){
+		auto tempText = std::shared_ptr<sf::Text>(new sf::Text);
+		tempText->setString(tempTextVec.at(i));
+		tempText->setPosition(tempTextPos.at(i).x,tempTextPos.at(i).y);
+		tempText->setFont(_font);
+		textVec.push_back(tempText);
+		//tempText->Text()
+	}
+	_screenText.push_back(textVec);
+	
+}
+
+void Display::drawText(const int& screen){
+	for(unsigned int j = 0;j<_screenText.at(screen).size();j++){
+		_window->draw(*(_screenText.at(screen).at(j)));
+	}
+}
