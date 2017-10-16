@@ -18,6 +18,7 @@ public:
      static void GameStart();
      static gameSettings getSettings() ;
 private:
+	static void runScreenLoop();
 	static void makeScreens();
     static bool play();
     static void resetGame();

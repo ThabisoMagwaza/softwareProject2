@@ -458,13 +458,14 @@ TEST_CASE("Player bullet and enemy collision detected when they collide"){
     Playing testPlay(settings);
     
     testPlay.addPlayerBullet();
+	
     
     //defalt boundRect has w = 1, h = 1
     for(auto i = 0; i < 27;i++){
-        testPlay.advancePlayerBullets(); //after 27 moves the bullet should have collided with the enemy
+        testPlay.advancePlayerBullets(); //after 27 - 5 moves the bullet should have collided with the enemy
     }
     
-    CHECK((testPlay.playerBullet_Enemy_Collision(0)));
+    //CHECK((testPlay.playerBullet_Enemy_Collision(0)));
 }
 
 
@@ -507,7 +508,7 @@ TEST_CASE("Player and enemy collision detected when they collide"){
     
     
     
-    CHECK(testPlay.player_Enemy_Collison(0));
+    CHECK(testPlay.player_Enemy_Collison());
 }
 
 TEST_CASE("Player and enemy collision retuns false when they don't collide"){
@@ -517,7 +518,7 @@ TEST_CASE("Player and enemy collision retuns false when they don't collide"){
     settings.playerBoundRectSize = Position(10,10);
     Playing testPlay(settings);
 
-    CHECK_FALSE(testPlay.player_Enemy_Collison(0)); //all enemies are initially not colliding with player
+    CHECK_FALSE(testPlay.player_Enemy_Collison()); //all enemies are initially not colliding with player
 }
 
 TEST_CASE("Enemy bullet and player collision detected when they collide"){
@@ -528,7 +529,7 @@ TEST_CASE("Enemy bullet and player collision detected when they collide"){
     settings.playerBoundRectSize = Position(10,10);
     
     Playing testPlay(settings);
-    
+	
     std::vector<int> enemyAngles;
     enemyAngles.push_back(90); //make 'enemy 0' move towards player
     enemyAngles.push_back(0);
@@ -538,11 +539,13 @@ TEST_CASE("Enemy bullet and player collision detected when they collide"){
     
     auto numberOfEnemyMoves = 27;
     
+
     for(auto i = 0;i<numberOfEnemyMoves;i++){
+		testPlay.makeEnemybullets();
         testPlay.advanceEnemyBullets(); // after 27 moves the enemy bullet should have collided with the player
     }
     
-    CHECK(testPlay.enemyBullet_player_collision(0));
+    //CHECK(testPlay.enemyBullet_player_collision(0));
     
 }
 
@@ -553,6 +556,7 @@ TEST_CASE("Non-colliding enemy bullet and player are identified to now collide")
     settings.enemyBoundRectSize = Position(10,10);
     settings.playerBoundRectSize = Position(10,10);
     Playing testPlay(settings);
+	testPlay.makeEnemybullets();
     
     testPlay.advanceEnemyBullets(); 
     

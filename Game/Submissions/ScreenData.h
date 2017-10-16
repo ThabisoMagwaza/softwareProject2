@@ -17,7 +17,7 @@ struct ScreenData{
      
      //Texts
      vector <string> GOtext{"Game Over","Press any key for Menu"};
-	 vector <string> SplashText{"Space Assault", "Game Controls: Right Arrow-Rotate Anticlockwise","Left Arrow-Rotate Clockwise", "X-Shoot enemy","Click Mouse to play Game"};
+	 vector <string> SplashText{"Space Assault", "Game Controls: Right Arrow-Rotate Anticlockwise","Left Arrow-Rotate Clockwise", "X-Shoot enemy","Press Enter to play Game"};
       
      //TextPosition
      vector <Position> GOpos{Position(0,100),Position(300,300)};

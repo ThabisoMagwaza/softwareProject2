@@ -16,8 +16,8 @@ gameSettings::gameSettings(const double& w , const double& h)
      playerImageCenter = Position(86,145);
      enemyImageCenter = Position(55,157);
      playerSpeed = 1;
-     playerBoundRectSize = Position(40,70);
-     enemyBoundRectSize = Position(41,75);
+     playerBoundRectSize = Position(40 * 0.3,70* 0.3);
+     enemyBoundRectSize = Position(41 * 0.3,75 * 0.3);
 	 maxPlayerBullets = 2;
 	 playerBulletImageDir = "resources/playerBullet.png";
 	 enemyBulletImageDir = "resources/enemyBullet.png";

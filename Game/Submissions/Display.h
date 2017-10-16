@@ -17,7 +17,7 @@ public:
     void drawPlayer(); 
     void updatePosition(std::shared_ptr<objectPositions> newPositions);
     void updatePlayer(); //updates sprite positions  
-    void showGame(std::shared_ptr<objectPositions> newPositions,const GameMode& mode);
+    void showGame(const GameMode& mode,std::shared_ptr<objectPositions> newPositions = NULL);
     void closeWindow();
     std::shared_ptr<sf::RenderWindow> getWindow();
     void makeEnemies();

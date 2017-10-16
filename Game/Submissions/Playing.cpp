@@ -28,14 +28,18 @@ void Playing::addPlayerBullet() {
 	}
 }
 
-void Playing::advancePlayerBullets(){
+bool Playing::advancePlayerBullets(){
     for(unsigned int i = 0; i < _player->_bullets.size();i++){
         _player->_bullets.at(i)->shoot(_settings.origin,_settings.playerBulletSpeed);
 
 		if(_player->_bullets.at(i)->getDisplacement() < 5){ //remove bullet when it reaches the center
 			_player->removeBullet(i);
+		}else if(playerBullet_Enemy_Collision(i)){
+			_player->removeBullet(i);
+			removeEnemy(i);
 		}
     }
+	return _enemies.size() != 0;
 }
 
 bool Playing::playerBullet_Enemy_Collision(const int& bullet) const{
@@ -48,11 +52,14 @@ bool Playing::playerBullet_Enemy_Collision(const int& bullet) const{
     return false;
 }
 
-bool Playing::player_Enemy_Collison(const int& enemy) const{
-    auto rect1 = _player->getBoundRect();
-    auto rect2 = _enemies[enemy]->getBoundRect();
-    
-    return rect1->intersects(rect2);
+bool Playing::player_Enemy_Collison() const{
+	auto rect1 = _player->getBoundRect();
+	for(unsigned int i = 0;i<_enemies.size();i++){
+		auto rect2 = _enemies[i]->getBoundRect();
+		if(rect1->intersects(rect2))
+			return true;
+	}
+    return false;
 }
 
 void Playing::setEnemyMovingAngles(std::vector<int> angles){
@@ -62,7 +69,8 @@ void Playing::setEnemyMovingAngles(std::vector<int> angles){
     }
 }
 
-void Playing::advanceEnemies() {
+bool Playing::advanceEnemies() {
+	bool bulletMovingResult = true;
     for(unsigned int i = 0;i<_enemies.size();i++){
 		if(_enemies[i]->getDisplacement() == _settings.playingRadius + 60){  //set position to origin
 			auto temp = std::make_shared<Position>(_settings.origin.x,_settings.origin.y);
@@ -71,16 +79,23 @@ void Playing::advanceEnemies() {
 			_enemies[i]->setDisplacement(0);
 		}else{
 			_enemies[i]->move('l',_settings.origin,_settings.enemySpeed,_enemyMovingAngles[i]);
+			if(player_Enemy_Collison()) //end game if player collides with enemy
+				return false;
 		}
 		
 		//enemy bullets are only shot at approximately enemyBulletShootingDistance
 		if(_enemies[i]->getDisplacement() >= _settings.enemyBulletShootingDistance && _enemies[i]->getDisplacement() <= _settings.enemyBulletShootingDistance + 2){
 			makeEnemybullets();
-			advanceEnemyBullets();
+			bulletMovingResult = advanceEnemyBullets(); //returns false if bullet collides with player
+			if(!bulletMovingResult)
+				return bulletMovingResult;
 		}else if(_enemies[i]->getDisplacement() > _settings.enemyBulletShootingDistance + 2){
-			advanceEnemyBullets();
+			bulletMovingResult = advanceEnemyBullets();
+			if(!bulletMovingResult)
+				return bulletMovingResult;
 		}
     }
+	return bulletMovingResult;
 }
 
 void Playing::updatePositions(){
@@ -119,7 +134,7 @@ bool Playing::enemyBullet_player_collision(const int& enemy) const{
     return rect1->intersects(rect2);
 }
 
-void Playing::advanceEnemyBullets(){
+bool Playing::advanceEnemyBullets(){
 	
     for(unsigned int i = 0;i<_enemies.size();i++){
         if(_enemies[i]->getBullet() != NULL){
@@ -130,9 +145,11 @@ void Playing::advanceEnemyBullets(){
 				_enemies[i]->removeBullet();
 			}else if(enemyBullet_player_collision(i)){
 				_enemies[i]->removeBullet();
+				return false;
 			}
 		}
     }
+	return true;
 }
 
 std::shared_ptr<objectPositions> Playing::getPositions(){

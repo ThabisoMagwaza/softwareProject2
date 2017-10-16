@@ -14,7 +14,7 @@ std::vector<Screen> Game::_screens;
 
 //This function initializes the game!
 void Game::GameStart(){
-    Mode = GameMode::Playing;
+    Mode = GameMode::Splash;
 	makeScreens();
 	_display.makeScreens(_screens);
     while(!isQuiting()){
@@ -30,7 +30,7 @@ void Game::MainLoop(){
         switch (Mode){
             //Case Handler for the splash in the initialization.
             case GameMode::Splash:
-                //dispSplash();
+				runScreenLoop();
                 break;
             
             case GameMode::Playing:
@@ -38,13 +38,14 @@ void Game::MainLoop(){
             
                 if(!play()){
                     Mode = GameMode::GameOver;
+					resetGame();
                 }
                 
-                _display.showGame(_playing->getPositions(),Mode);
+                _display.showGame(Mode,_playing->getPositions());
 
                 break;
             case GameMode::GameOver:
-                //dispGameOver();
+				runScreenLoop();
                 break;
                 
         default:
@@ -84,15 +85,23 @@ bool Game::play(){
 		_playing->addPlayerBullet();
 	}
     
-	_playing->advancePlayerBullets();
-    _playing->advanceEnemies();
+	if(!_playing->advancePlayerBullets())
+		return false;
+	
+    return _playing->advanceEnemies();
     
-    return true;
+//    return true;
 }
 
 void Game::makeScreens(){
 	_screens.push_back(Screen(_screenData.SplashDirectory,_screenData.SplashText,_screenData.SplashPos)); //splashscreen
 	_screens.push_back(Screen(_screenData.BackGroundDirectory)); //background
 	_screens.push_back(Screen(_screenData.GameOverDirectory,_screenData.GOtext,_screenData.GOpos)); //Game over
+}
+
+void Game::runScreenLoop(){
+		_display.showGame(Mode);
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
+			Mode = GameMode::Playing;
 }
 

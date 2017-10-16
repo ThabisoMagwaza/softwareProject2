@@ -40,7 +40,7 @@ void Display::updatePlayer(){
     _playerSprite.setPosition(temp);
 }
 
-void Display::showGame(std::shared_ptr<objectPositions> newPositions,const GameMode& mode){
+void Display::showGame(const GameMode& mode, std::shared_ptr<objectPositions> newPositions){
     _window->clear();
     switch(mode){
         case GameMode::Playing:
